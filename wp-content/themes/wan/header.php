@@ -25,29 +25,38 @@
 
 	?></title>
 
-	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/typo.css">
-	<link rel="stylesheet" type="text/css" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 	<!--[if lt IE 9]>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 	<![endif]-->
+
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/bootstrap/js/bootstrap.min.js"></script>
 	<?php
 		//hook
 		wp_head();
 	?>
 	</head>
 	<body>
-		<div id="page">
+		<div class="container">
 			<header role="banner">
 				<hgroup>
 					<h1 id="site-title"><span><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span></h1>
-					<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
+					<h4 id="site-description"><?php bloginfo( 'description' ); ?></h4>
 				</hgroup>
-				<nav id="access" role="navigation">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>">首页</a>
-					<?php wp_list_categories(array(
-						'style' => 'list',
-						'title_li' => ''
-						)); ?> 
-				</nav>
+
 			</header>
+		</div>
+		
+		<nav id="access" role="navigation" class="navbar navbar-inverse">
+			<div class="navbar-inner">
+			<?php wp_nav_menu(array(
+				'container' 		=> 'div',
+				'container_class'	=> 'container',
+				'menu_class'        => 'nav',
+				'walker'        => new wan_walker_nav_menu
+			)) ?>	
+			</div>
+		</nav>
+		<div class="container">

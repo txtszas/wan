@@ -1,36 +1,45 @@
-#page {
-  margin: 2em auto;
-  max-width: 1000px;
-}
-nav {
-  border: 1px solid #666;
-}
-nav li {
-  float: left;
-}
-nav li.current-cat a {
-  color: red;
-}
-#main {
-  clear: both;
-  width: 600px;
-  float: left;
-}
-#content {
-  clear: both;
-}
-footer {
-  clear: both;
-}
-#sidebar {
-  width: 200px;
-  float: left;
-}
-#piece li {
-  font-size: 12px;
-  border-bottom: 1px solid #666;
+.container {
+  width: 980px;
 }
 #list20 li {
+  width: 260px;
   float: left;
-  width: 300px;
+}
+.of {
+  overflow: hidden;
+}
+.img_thumb li {
+  float: left;
+  margin: 0 6px 6px 0;
+}
+.preivew_box {
+  position: relative;
+  width: 557px;
+  border: 1px solid #DEDEDE;
+  padding: 10px;
+  display: none;
+}
+.preivew_box .left,
+.preivew_box .right {
+  display: none;
+}
+.preivew_box .left span,
+.preivew_box .right span {
+  position: absolute;
+  top: 60px;
+}
+.img_preview {
+  position: relative;
+  margin: 0;
+  list-style: none;
+}
+.img_preview li {
+  text-align: center;
+  display: none;
+}
+.img_preview li.active {
+  display: block;
+}
+.tips {
+  text-align: center;
 }

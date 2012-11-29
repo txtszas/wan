@@ -95,6 +95,33 @@ function get20list()
 	return $postslist = get_posts( $args );
 
 }
+
+//获取文章附件信息by post_id
+
+
+function getAttachementsByPostId($postId)
+{
+	$attachInfo = array();
+	$args = array( 
+		'post_type' => 'attachment', 
+		'numberposts' => -1, 
+		'post_parent' => $postId,
+		'orderby'     => 'post_date',
+    	'order'           => 'ASC',
+		 );
+	$attachments = get_posts( $args); 
+	
+	if ($attachments) {
+		foreach ($attachments as  $post) {
+			$attachInfo[$post->ID] = get_post_meta($post->ID,'_wp_attachment_metadata');
+		}
+	}else{
+		return false;
+	}
+	return $attachInfo;
+}
+
+
 // 段子
 function getPiece(){
 	$args = array(
@@ -118,4 +145,59 @@ function wan_posted_on() {
 	);
 }
 
+//导航菜单
+if(function_exists('register_nav_menus')){
+	register_nav_menus(
+	array(
+	'header-menu' => __( '导航自定义菜单' ),
+	'footer-menu' => __( '页角自定义菜单' ),
+	'sider-menu' => __('侧边栏菜单')
+	)
+	);
+}
+
+class wan_walker_nav_menu extends Walker_Nav_Menu{
+	function start_el( &$output, $item, $depth, $args ) {
+    global $wp_query;
+    $indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent
+  
+    // depth dependent classes
+    $depth_classes = array(
+        ( $depth == 0 ? 'main-menu-item' : 'sub-menu-item' ),
+        ( $depth >=2 ? 'sub-sub-menu-item' : '' ),
+        ( $depth % 2 ? 'menu-item-odd' : 'menu-item-even' ),
+        'menu-item-depth-' . $depth
+    );
+    $depth_class_names = esc_attr( implode( ' ', $depth_classes ) );
+  
+    // passed classes
+    $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+    $class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
+  
+    // build html
+    $output .= $indent . '<li id="nav-menu-item-'. $item->ID . '" class="' . $class_names . '">';
+  
+    // link attributes
+    $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+    $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+    $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+    $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+    $attributes .= ' class="menu-link ' . ( $depth > 0 ? 'sub-menu-link' : 'main-menu-link' ) . '"';
+  
+    $item_output = sprintf( '%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
+        $args->before,
+        $attributes,
+        $args->link_before,
+        apply_filters( 'the_title', $item->title, $item->ID ),
+        $args->link_after,
+        $args->after
+    );
+  
+    // build html
+    $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+}
+
+}
+
+add_theme_support( 'post-thumbnails' ); 
 ?>
