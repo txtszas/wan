@@ -81,7 +81,29 @@ function wan_widgets_init() {
 add_action( 'widgets_init', 'wan_widgets_init' );
 
 
-
+function getImageList($attachInfo,$post_id){
+	$imgList = '';
+	$num = 0;
+	if ($attachInfo){
+		$imgList = '<ul id="thumn_'.$post_id.'" class="img_thumb" date-postid = "'.$post_id.'">';
+		foreach ($attachInfo as $k => $v) { 
+			if ($num > 2)
+				break;
+			$num++;
+			$imgList = $imgList . '<li class="thumbnail">';
+			$imgList = $imgList . '<img src="'.wp_get_attachment_thumb_url($k).'" height="120"></li>';
+		}
+		$imgList = $imgList . '</ul><div class="preivew_box" id="preivew_box_'.$post_id.'">';
+		$img_num = count($attachInfo);
+		$imgList = $imgList . '<div class="tips"><span class="current-num">1</span>/<span class="count">'.$img_num.'</span><a href="javascript:;" class="close-back">收回</a></div><ul class="img_preview" id="img_'.$post_id.'">';
+		foreach ($attachInfo as $k => $v) { 
+			$url = wp_get_attachment_image_src($k,'medium');
+			$imgList = $imgList . '<li><img src="'. $url[0] . '" class="img-polaroid"></li>';	
+		}
+		$imgList = $imgList . '</ul><a class="carousel-control left" href="#myCarousel" data-slide="prev"><span>&lsaquo;</span></a><a class="carousel-control right" href="#myCarousel" data-slide="next"><span>&rsaquo;</span></a></div>';
+	}
+	return $imgList;
+}
 
 
 
@@ -132,6 +154,10 @@ function getPiece(){
 	return $postslist = get_posts( $args );
 }
 
+
+function get_posted_on(){
+	return '<span class="sep">发布于 </span><a href="' . esc_url(get_permalink()) . '" title="'.esc_attr( get_the_time() ).'" rel="bookmark"><time class="entry-date" datetime="'.esc_attr( get_the_date( 'c' ) ).'" pubdate>'.esc_html( get_the_date() ).'</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="'.esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ).'" title="'.esc_attr( sprintf( '查看 %s 发布的文章', get_the_author() ) ).'" rel="author">' . get_the_author() .'</a></span></span>';
+}
 
 function wan_posted_on() {
 	printf( '<span class="sep">发布于 </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>',

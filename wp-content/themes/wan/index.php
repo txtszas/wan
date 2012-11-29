@@ -1,18 +1,27 @@
 <?php get_header(); ?>
 
-
-
 <div class="row">
 	<div class="span8">
 		<?php include (TEMPLATEPATH . '/list20.php'); ?>
 
 		<!-- 主体内容 -->
 		<div id="content">
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php 
+			$s = 0;
+			while ( have_posts() ) : the_post(); 
+				$s++;
+				if ($s <= 5) {
+			?>
 
 						<?php get_template_part('content','index'); ?>
 
-			<?php endwhile; ?>
+			<?php 
+			}else{
+				break;
+			}
+			endwhile; 
+
+			?>
 
 
 
@@ -36,70 +45,70 @@
 
 
 </div>
-
-
 <script type="text/javascript">
+//动态加载
 
-var img_show_num = new Array();
-function show_img(post_id,show_eq){
-	$('#preivew_box_' + post_id + ' .current-num').text(show_eq+1);
-	$('#img_'+ post_id + ' li').removeClass('active');
-	$('#img_'+ post_id + ' li').eq(show_eq).addClass('active');
-}
+loadPage = {
+		//获取当前滚动条与底部距离
+		open:true
+		,done:0
+		,paged:<?php echo $paged == 0 ? 1 : $paged ; ?>
+		,realPage:2
+		,loadLimit:3
+		,getScrollFromBottom:function() {
+			return $(document).height()-$(window).scrollTop()-$(window).height();
+		}
+		,listen: function(){
+			$(window).scroll(function(){
+				loadPage.checkHeight();
+			})
+		}
+		,checkHeight: function(){
+			if (this.getScrollFromBottom() < 500 ){
+				if (!this.done) {
+					if (this.realPage<= this.loadLimit) {
+						loadPage.loadData();
+						this.done = 1;
+						this.realPage++;
+					}
+				}
+			}else{
+				this.done = 0;
+			}
+		}
+		,loadData: function(){
+			var that = this
+			data = $.ajax({
+					url:"/wp-content/plugins/pageload/pageload.php",
+					data:{tk_paged:((this.paged-1)*3+this.realPage)},
+					dataType:'json',
+					success:function(data){
+						that.inputData(data);
 
-function makePreNextListesn(post_id,img_count){
-	$('#preivew_box_' + post_id + ' .right').click(function(){
-		if (img_show_num[post_id] < img_count - 1) {
-			img_show_num[post_id]++;
-			show_img(post_id, img_show_num[post_id]);
-			$('#preivew_box_' + post_id + ' .left').show();
+					}});
 		}
-		if (img_show_num[post_id] == img_count - 1){
-			$('#preivew_box_' + post_id + ' .right').hide();
+		,inputData:function(itemList){
+			for(var key in itemList){
+				this.addArticle(itemList[key]);
+			}
+			makeImg();
 		}
-	})
-	$('#preivew_box_' + post_id + ' .left').click(function(){
-		if (img_show_num[post_id] > 0){
-			img_show_num[post_id]--;
-			show_img(post_id, img_show_num[post_id]);
-			$('#preivew_box_' + post_id + ' .right').show();
-		}
-		if (img_show_num[post_id] == 0){
-			$('#preivew_box_' + post_id + ' .left').hide();
-		}
-		
-	})
-}
-$('ul.img_thumb li').click(function(){
-	var show_eq = $(this).index();
-	var show_id;
-	post_id = $(this).parent().attr('date-postid');
-	$('#thumn_' + post_id).hide();
-	$('#preivew_box_' + post_id).show();
-	var img_count = $('#preivew_box_' + post_id + ' .count').text();
+		,addArticle:function(article){
+			var article;
+			data = '<article id="post-'+article.id+'" class="well">\
+						<header class="entry-header">\
+							<h1 class="entry-title">\
+								<a href="'+article.link+'" > '+article.title+'</a>\
+							</h1>\
+							<div class="entry-excerpt of">\
+								'+article.excerpt;
+			data += article.attachInfo;
+			data +=	'</div></article></header>';
 
-	if (img_count > 1){
-		if (show_eq != (img_count -1)){
-			$('#preivew_box_' + post_id + ' .right').show();
-		}
-		if (show_eq != 0) {
-			$('#preivew_box_' + post_id + ' .left').show();
-		}
+			$('#content').append(data);
+		} 
 	}
-
-	$('#preivew_box_' + post_id + ' .close-back').click(function(){
-		console.log(333);
-		$('#thumn_' + post_id).show();
-		$('#preivew_box_' + post_id).hide();
-	})
-
-	show_img(post_id,show_eq);
-	img_show_num[post_id] = show_eq;
-	makePreNextListesn(post_id,img_count);
-});
-
-
-
-
+	
+loadPage.listen();
 </script>
 <?php get_footer(); ?>
