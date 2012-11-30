@@ -95,12 +95,12 @@ function getImageList($attachInfo,$post_id){
 		}
 		$imgList = $imgList . '</ul><div class="preivew_box" id="preivew_box_'.$post_id.'">';
 		$img_num = count($attachInfo);
-		$imgList = $imgList . '<div class="tips"><span class="current-num">1</span>/<span class="count">'.$img_num.'</span></div><ul class="img_preview" id="img_'.$post_id.'">';
+		$imgList = $imgList . '<div class="tips">第<span class="current-num">1</span>张/共<span class="count">'.$img_num.'</span>张</div><ul class="img_preview" id="img_'.$post_id.'">';
 		foreach ($attachInfo as $k => $v) { 
 			$url = wp_get_attachment_image_src($k,'medium');
 			$imgList = $imgList . '<li><img src="'. $url[0] . '" class="img-polaroid"></li>';	
 		}
-		$imgList = $imgList . '</ul><a class="carousel-control left" href="#myCarousel" data-slide="prev"><span>&lsaquo;</span></a><a class="carousel-control right" href="#myCarousel" data-slide="next"><span>&rsaquo;</span></a></div>';
+		$imgList = $imgList . '</ul><a class="carousel-control left" href="#myCarousel" data-slide="prev"><span>&nbsp;</span></a><a class="carousel-control right" href="#myCarousel" data-slide="next"><span>&nbsp;</span></a></div>';
 	}
 	return $imgList;
 }
@@ -110,7 +110,7 @@ function getImageList($attachInfo,$post_id){
 function get20list()
 {
 	$args = array(
-		'numberposts' 	=> 20,
+		'numberposts' 	=> 16,
 		'orderby'     	=> 'post_date',
 		'category'	 	=> '1,3',
 	);
@@ -156,11 +156,11 @@ function getPiece(){
 
 
 function get_posted_on(){
-	return '<span class="sep">发布于 </span><a href="' . esc_url(get_permalink()) . '" title="'.esc_attr( get_the_time() ).'" rel="bookmark"><time class="entry-date" datetime="'.esc_attr( get_the_date( 'c' ) ).'" pubdate>'.esc_html( get_the_date() ).'</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="'.esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ).'" title="'.esc_attr( sprintf( '查看 %s 发布的文章', get_the_author() ) ).'" rel="author">' . get_the_author() .'</a></span></span>';
+	return '<a href="' . esc_url(get_permalink()) . '" title="'.esc_attr( get_the_time() ).'" rel="bookmark"><time class="entry-date" datetime="'.esc_attr( get_the_date( 'c' ) ).'" pubdate>'.esc_html( get_the_date() ).'</time></a><span class="gg">|</span><span class="by-author"><span class="author vcard"><a class="url fn n" href="'.esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ).'" title="'.esc_attr( sprintf( '查看 %s 发布的文章', get_the_author() ) ).'" rel="author">' . get_the_author() .'</a></span></span>';
 }
 
 function wan_posted_on() {
-	printf( '<span class="sep">发布于 </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>',
+	printf( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="gg">|</span><span class="by-author"><span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>',
 		esc_url( get_permalink() ),
 		esc_attr( get_the_time() ),
 		esc_attr( get_the_date( 'c' ) ),

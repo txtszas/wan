@@ -1,12 +1,212 @@
-.container {
-  width: 980px;
+body {
+  background: #f9f9f9;
 }
-#list20 li {
-  width: 260px;
+#top-nav {
+  height: 44px;
+  background: #282828;
+  border-bottom: 2px solid #46ca11;
+}
+#top-nav .right-box {
+  width: 71px;
+  height: 22px;
+  background: #46ca11;
+  float: right;
+  margin-top: 22px;
+}
+.container {
+  width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+header {
+  height: 80px;
+  margin-top: 40px;
+}
+header #site-title {
   float: left;
 }
-.of {
+header .header-right {
+  float: left;
+  width: 600px;
+  margin-left: 13px;
+}
+header .nav {
+  margin-top: 5px;
+}
+header .nav li {
+  float: left;
+  height: 32px;
+  padding: 0 12px;
+  border-bottom: 2px solid #c4c4c4;
+  -o-transition: color, text-shadow 0.3s, 0.3s;
+  -ms-transition: color, text-shadow 0.3s, 0.3s;
+  -moz-transition: color, text-shadow 0.3s, 0.3s;
+  -webkit-transition: color, text-shadow 0.3s, 0.3s;
+}
+header .nav li a {
+  font-size: 14px;
+  color: #484848;
+}
+header .nav li.active,
+header .nav li:hover,
+header .nav li.current-post-parent {
+  border-bottom: 2px solid #48ca13;
+}
+#main .container {
+  overflow: visible;
+  background: #fff;
+  box-shadow: 0 0 5px 1px #ccc;
+}
+.main-left {
+  float: left;
+  width: 699px;
+  padding-left: 12px;
+  padding-right: 7px;
+  clear: left;
+}
+#sidebar {
+  float: right;
+  width: 240px;
+  padding: 20px 25px 0 15px;
+  clear: right;
+}
+#sidebar h2,
+#sidebar h3 {
+  padding-left: 6px;
+  font-size: 14px;
+  color: #000;
+  border-left: 6px solid #de833a;
+  margin-bottom: 5px;
+}
+#sidebar li {
+  margin-bottom: 23px;
+  padding-left: 10px;
+  font-size: 12px;
+  background: url(images/list-icon.png) no-repeat 0 9px;
+}
+#site-description {
+  color: #686868;
+  font-size: 12px;
+}
+.breadcrumbs {
+  border-bottom: 1px solid #d4d4d4;
+  font-size: 12px;
+  color: #656565;
+  margin-top: 3px;
+  margin-bottom: 8px;
+  line-height: 30px;
+}
+.breadcrumbs a {
+  color: #427ba2;
+}
+#list20 {
+  border-bottom: 1px solid #d4d4d4;
   overflow: hidden;
+  padding-bottom: 5px;
+}
+#list20 h2 {
+  padding-left: 6px;
+  font-size: 14px;
+  color: #000;
+  border-left: 6px solid #65e757;
+}
+#list20 .left {
+  float: left;
+}
+#list20 .right {
+  float: right;
+}
+#list20 .left,
+#list20 .right {
+  width: 335px;
+  padding-left: 10px;
+}
+#list20 .left li,
+#list20 .right li {
+  background: url(images/list-icon.png) no-repeat 0 12px;
+  text-indent: 12px;
+  line-height: 22px;
+}
+#list20 .left a,
+#list20 .right a {
+  color: #3a3a3a;
+  font-size: 12px;
+}
+.more {
+  clear: both;
+}
+#content {
+  clear: both;
+}
+article {
+  background: url(images/artical_bg.png) bottom no-repeat;
+  margin-top: 13px;
+}
+article .entry-title {
+  margin-bottom: 11px;
+}
+article .entry-title h4 {
+  width: 80px;
+  height: 30px;
+  font-size: 14px;
+  line-height: 30px;
+  background: #d4d645;
+  text-align: center;
+  float: left;
+  margin-left: -22px;
+}
+article .entry-title h4 a {
+  color: #fff;
+}
+article .entry-title h2 {
+  float: left;
+  margin-left: 6px;
+  height: 30px;
+  line-height: 30px;
+}
+article .entry-title h2 a {
+  font-size: 16px;
+  color: #1ba1e6;
+}
+article .entry-meta {
+  clear: both;
+  margin-bottom: 20px;
+}
+article .entry-meta .commit-views {
+  float: right;
+}
+article .entry-meta .post_on {
+  float: left;
+  margin-left: 16px;
+}
+article .entry-meta time,
+article .entry-meta .author a,
+article .entry-meta .views,
+article .entry-meta .commits {
+  color: #666666;
+  font-size: 12px;
+}
+article .entry-meta .gg {
+  margin: 0 3px;
+}
+article .entry-excerpt {
+  clear: both;
+  font-size: 14px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+article .img-review {
+  overflow: hidden;
+}
+article .entry-more {
+  text-align: right;
+}
+article .entry-more a {
+  font-size: 12px;
+  color: #4168b7;
+}
+.clear {
+  clear: both;
 }
 .img_thumb li {
   float: left;
@@ -17,9 +217,6 @@
 }
 .preivew_box {
   position: relative;
-  width: 557px;
-  border: 1px solid #DEDEDE;
-  padding: 10px;
   display: none;
 }
 .preivew_box .left,
@@ -30,6 +227,20 @@
 .preivew_box .right span {
   position: absolute;
   top: 60px;
+}
+.preivew_box .left {
+  left: 0;
+  background: url(images/arrow.png) no-repeat left center;
+}
+.preivew_box .right {
+  right: 0;
+  background: url(images/arrow.png) no-repeat right center;
+}
+.preivew_box .carousel-control {
+  position: absolute;
+  width: 90px;
+  height: 100%;
+  top: 0;
 }
 .img_preview {
   position: relative;
@@ -47,5 +258,12 @@
   display: block;
 }
 .tips {
-  text-align: center;
+  text-align: right;
+  font-size: 12px;
+}
+footer {
+  height: 109px;
+  background: #444c4c;
+  border-top: 11px solid #586263;
+  color: #fff;
 }

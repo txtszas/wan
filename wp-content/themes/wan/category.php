@@ -1,23 +1,22 @@
 <?php get_header(); ?>
-<div class="row">
-	<div class="span8">
+<div class="main-left">
+	<div class="breadcrumbs">
+		您的位置：
+    <?php if(function_exists('bcn_display'))
+    {
+        bcn_display();
+    }?>
+	</div><!-- .breadcrumbs -->
+	<div id="content">
 		<?php while ( have_posts() ) : the_post(); ?>
 
 					<?php get_template_part('content','index'); ?>
 
 		<?php endwhile; ?>
-			<div class="pager">
-				<ul>
-					<li class="previous"><?php previous_posts_link('&laquo; 上一页') ?></li>
-					<li class="next"><?php next_posts_link('下一页 &raquo;','') ?></li>
-				</ul>
-	 		</div>
 	</div>
-	<div class="span4">
-	 	<?php get_sidebar(); ?>
-	 </div>
-
-
+	<?php wp_pagenavi(); ?>
 </div>
+<?php get_sidebar(); ?>
+<div class="clear"></div>
 <!-- 侧边栏 -->
 <?php get_footer();?>

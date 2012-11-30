@@ -1,11 +1,17 @@
 <?php get_header(); ?>
+<div class="main-left">
 
-<div class="row">
-	<div class="span8">
-		<?php include (TEMPLATEPATH . '/list20.php'); ?>
+	<div class="breadcrumbs">
+		您的位置：
+    <?php if(function_exists('bcn_display'))
+    {
+        bcn_display();
+    }?>
+	</div><!-- .breadcrumbs -->
+	<?php include (TEMPLATEPATH . '/list20.php'); ?>
 
 		<!-- 主体内容 -->
-		<div id="content">
+	<div id="content">
 			<?php 
 			$s = 0;
 			while ( have_posts() ) : the_post(); 
@@ -31,20 +37,17 @@
 					<li class="next"><?php next_posts_link('下一页 &raquo;','') ?></li>
 				</ul>
 	 		</div> -->
-		</div>
+	</div><!-- #content -->
 		<?php wp_pagenavi(); ?>
-	</div>
 
 	<!-- 最新二十条 -->
 	
 
 <!-- 侧边栏 -->
-	 <div class="span4">
-	 	<?php get_sidebar(); ?>
-	 </div>
-
-
-</div>
+	 	
+</div><!-- #main-left -->
+<?php get_sidebar(); ?>
+<div class="clear"></div>
 <script type="text/javascript">
 //动态加载
 
@@ -96,15 +99,25 @@ loadPage = {
 		,addArticle:function(article){
 			var article;
 			data = '<article id="post-'+article.id+'" class="well">\
-						<header class="entry-header">\
-							<h1 class="entry-title">\
-								<a href="'+article.link+'" > '+article.title+'</a>\
-							</h1>\
+							<div class="entry-title">\
+								<h4 class="cat_'+article.cat_id+'">\
+									<a href="'+article.cat_link+'">'+article.cat_name+'</a></h4>\
+								<h2><a href="'+article.link+'" > '+article.title+'</a></h2>\
+								<div class="clear"></div>\
+							</div>\
+							<div class="entry-meta">\
+								<div class="post_on">'+article.post_on+'</div>\
+								<div class="commit-views">\
+									<span class="views">'+article.views+'人围观</span>\
+									<span class="commits">'+article.comment+'条评论</span>\
+								</div>\
+								<div class="clear"></div>\
+							</div>\
 							<div class="entry-excerpt of">\
-								'+article.excerpt;
-			data += article.attachInfo;
-			data +=	'</div></article></header>';
-			data += '<div class="entry-meta">'+ article.post_on + '<a href="'+article.link+'" class="btn">继续阅读</a>';
+								'+article.excerpt+'\
+							</div>';
+			data += '<div class="img-review">' + article.attachInfo + '</div>';
+			data += '<div class="entry-more"><a href="'+article.link+'" class="btn">阅读全文>></a>';
 
 			$('#content').append(data);
 		} 
