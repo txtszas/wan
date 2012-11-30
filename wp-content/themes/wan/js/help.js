@@ -30,6 +30,14 @@ function makePreNextListesn(post_id,img_count){
 		
 	})
 }
+function makeCloseListen(post_id){
+	$('#preivew_box_' + post_id + ' img').unbind("click");
+	$('#preivew_box_' + post_id + ' img').click(function(){
+		$('#thumn_' + post_id).show();
+		$('#preivew_box_' + post_id).hide();
+	})
+}
+
 function makeImg(){
 	$('ul.img_thumb li').unbind("click");
 	$('ul.img_thumb li').click(function(){
@@ -48,10 +56,7 @@ function makeImg(){
 				$('#preivew_box_' + post_id + ' .left').show();
 			}
 		}
-		$('#preivew_box_' + post_id + ' .close-back').click(function(){
-			$('#thumn_' + post_id).show();
-			$('#preivew_box_' + post_id).hide();
-		})
+		makeCloseListen(post_id);
 
 		show_img(post_id,show_eq);
 		img_show_num[post_id] = show_eq;

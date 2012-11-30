@@ -104,6 +104,7 @@ loadPage = {
 								'+article.excerpt;
 			data += article.attachInfo;
 			data +=	'</div></article></header>';
+			data += '<div class="entry-meta">'+ article.post_on + '<a href="'+article.link+'" class="btn">继续阅读</a>';
 
 			$('#content').append(data);
 		} 

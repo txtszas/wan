@@ -95,7 +95,7 @@ function getImageList($attachInfo,$post_id){
 		}
 		$imgList = $imgList . '</ul><div class="preivew_box" id="preivew_box_'.$post_id.'">';
 		$img_num = count($attachInfo);
-		$imgList = $imgList . '<div class="tips"><span class="current-num">1</span>/<span class="count">'.$img_num.'</span><a href="javascript:;" class="close-back">收回</a></div><ul class="img_preview" id="img_'.$post_id.'">';
+		$imgList = $imgList . '<div class="tips"><span class="current-num">1</span>/<span class="count">'.$img_num.'</span></div><ul class="img_preview" id="img_'.$post_id.'">';
 		foreach ($attachInfo as $k => $v) { 
 			$url = wp_get_attachment_image_src($k,'medium');
 			$imgList = $imgList . '<li><img src="'. $url[0] . '" class="img-polaroid"></li>';	

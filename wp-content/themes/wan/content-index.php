@@ -12,7 +12,8 @@
 
 		<div class="entry-meta">
 			<?php wan_posted_on(); ?>
-			<a href="<?php echo get_permalink(); ?>" class="btn">继续阅读</a>
+				<a href="<?php echo get_permalink(); ?>" class="btn">继续阅读</a>
+			
 		</div><!-- .entry-meta -->
 
 	</header>

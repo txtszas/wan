@@ -12,6 +12,9 @@
   float: left;
   margin: 0 6px 6px 0;
 }
+.img_thumb li img {
+  cursor: url(http://img.t.sinajs.cn/t5/style/images/common/big.cur), auto !important;
+}
 .preivew_box {
   position: relative;
   width: 557px;
@@ -36,6 +39,9 @@
 .img_preview li {
   text-align: center;
   display: none;
+}
+.img_preview li img {
+  cursor: url(http://img.t.sinajs.cn/t5/style/images/common/small.cur), auto !important;
 }
 .img_preview li.active {
   display: block;
