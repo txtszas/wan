@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-EasyArchives 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-02-05 15:15+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: NeoEase <http://www.neoease.com/plugins/>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: core.php:149
+msgid "F Y"
+msgstr "Y.m"
+
+#: core.php:167
+#, php-format
+msgid "Show detailed results for %1$s"
+msgstr "Rodyti detalius %1$s rezultatus"
+
+#: core.php:168
+#, php-format
+msgid "%1$s posts"
+msgstr "%1$s įrašai"
+
+#: core.php:228
+#, php-format
+msgid "View this post, &quot;%1$s&quot;"
+msgstr "Rodyti įrašą, &quot;%1$s&quot;"
+
+#: core.php:310
+msgid "Year: "
+msgstr "Metai: "
+
+#: core.php:311
+#: core.php:341
+msgid "loading"
+msgstr "kraunama"
+
+#: core.php:340
+msgid "Author: "
+msgstr "Autorius: "
+
+#: core.php:353
+msgid "Expand All"
+msgstr "Išplėsti viską"
+
+#: core.php:362
+msgid "Collapse All"
+msgstr "Sutraukti visus"
+
+#: wp-easyarchives.php:33
+msgid "Monthly Archives"
+msgstr "Mėnesiniai archyvai"
+
+#: wp-easyarchives.php:89
+msgid "Title: "
+msgstr "Antraštė: "
+
+#: wp-easyarchives.php:96
+msgid "Number of archives to show: "
+msgstr "Rodomų archyvų skaičius: "
+
+#: wp-easyarchives.php:103
+msgid "Display mode: "
+msgstr "Rodymo būdas: "
+
+#: wp-easyarchives.php:105
+msgid "Expand last month"
+msgstr "Išplėsti paskutinį mėnesį"
+
+#: wp-easyarchives.php:106
+msgid "Expand all months"
+msgstr "Išplėsti visus mėnesius"
+
+#: wp-easyarchives.php:107
+msgid "Collapse all months"
+msgstr "Sutraukti visus mėnesius"
+
+#: wp-easyarchives.php:115
+msgid "Show page items."
+msgstr "Rodyti puslapio elementus."
+
+#: wp-easyarchives.php:131
+msgid "The monthly archives"
+msgstr "Mėnesiniai archyvai"
+
+#: wp-easyarchives.php:132
+#: wp-easyarchives.php:133
+msgid "WP-EasyArchives"
+msgstr "WP-EasyArchives"
+

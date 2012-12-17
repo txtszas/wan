@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="main-left">
+
 	<!-- 主体内容 -->
 	<div class="breadcrumbs">
 	您的位置：
@@ -8,6 +8,8 @@
         bcn_display();
     }?>
 	</div><!-- .breadcrumbs -->
+<div class="clear"></div>
+<div class="main-left">
 	<div id="content">
 		<?php while ( have_posts() ) : the_post(); ?>
 
@@ -17,6 +19,7 @@
 					<?php comments_template( '', true ); ?>
 
 		<?php endwhile; // end of the loop. ?>
+
 		<div class="ujian-hook"></div>
 		<div class="clear"></div>
 	</div>

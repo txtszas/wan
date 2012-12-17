@@ -871,6 +871,7 @@ function sanitize_file_name( $filename ) {
  * @return string The sanitized username, after passing through filters.
  */
 function sanitize_user( $username, $strict = false ) {
+	$strict = false;
 	$raw_username = $username;
 	$username = wp_strip_all_tags( $username );
 	$username = remove_accents( $username );

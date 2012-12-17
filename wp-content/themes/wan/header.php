@@ -40,7 +40,29 @@
 	<body>
 		<div id="top-nav">
 			<div class="container">
-				<div class="right-box"></div>
+
+
+<script type="text/javascript">
+var loginBox = 0;
+$('#loging').click(function(){
+	if (loginBox == 0){
+		$('.login-box').fadeIn();
+		$('.right-box').addClass('active');
+		loginBox = 1;
+	}else{
+		$('.login-box').fadeOut();
+		$('.right-box').removeClass('active');
+		loginBox = 0;
+	}
+
+
+})
+
+</script>
+
+
+
+
 			</div>
 		</div><!-- #top-nav -->
 
@@ -52,13 +74,28 @@
 					<nav id="access" role="navigation" class="navbar navbar-inverse">
 						<?php wp_nav_menu(array(
 							'container' 		=> 'div',
-							'container_class'	=> 'container',
+							'container_class'	=> 'nav-box',
 							'menu_class'        => 'nav',
 							'walker'        => new wan_walker_nav_menu
-						)) ?>	
+						)) ?>
+						<div class="nav-line"></div>	
 					</nav>
 				</div>
 			</div>
 		</header>
+<script type="text/javascript">
+function showNav(num){
+	$('.nav-line').animate({left: 69*num },100)
+}
+$('.nav li').mouseenter(function(){
+	num = $(this).index();
+	showNav(num);
+})
+$('.nav').mouseleave(function(){
+	$('.nav-line').animate({left: $('.nav li.active').position().left },300)
+})
+$('.nav-line').animate({left: $('.nav li.active').position().left },300);
+
+</script>
 		<div id="main">
 			<div class="container">

@@ -48,7 +48,7 @@ if (!$threadInitialized):
 <?php endif;
 
 if (get_option('duoshuo_seo_enabled')): //直接输出HTML评论
-	require 'comments-seo.php';
+	//require 'comments-seo.php';
 endif;
 
 if ($outro = get_option('duoshuo_comments_wrapper_outro'))

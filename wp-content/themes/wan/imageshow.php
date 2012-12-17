@@ -1,5 +1,6 @@
 <?php
 
 $attachInfo = getAttachementsByPostId($post->ID);
-
-echo getImageList($attachInfo,$post->ID);
+$maxWidth = 680;
+$maginRight = 6;
+echo getImageList($attachInfo,$post->ID,$post,$maxWidth,$maginRight);

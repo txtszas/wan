@@ -7,11 +7,11 @@ function show_img(post_id,show_eq){
 
 function makePreNextListesn(post_id,img_count){
 	$('#preivew_box_' + post_id + ' .right').unbind("click");
-	$('#preivew_box_' + post_id + ' .right').click(function(){
+	$('#right-'+post_id).click(function(){
 		if (img_show_num[post_id] < img_count - 1) {
 			img_show_num[post_id]++;
 			show_img(post_id, img_show_num[post_id]);
-			$('#preivew_box_' + post_id + ' .left').show();
+			$('#preivew_box_' + post_id + ' .left').css('display','block');
 		}
 		if (img_show_num[post_id] == img_count - 1){
 			$('#preivew_box_' + post_id + ' .right').hide();
@@ -22,7 +22,7 @@ function makePreNextListesn(post_id,img_count){
 		if (img_show_num[post_id] > 0){
 			img_show_num[post_id]--;
 			show_img(post_id, img_show_num[post_id]);
-			$('#preivew_box_' + post_id + ' .right').show();
+			$('#preivew_box_' + post_id + ' .right').css('display','block');
 		}
 		if (img_show_num[post_id] == 0){
 			$('#preivew_box_' + post_id + ' .left').hide();
@@ -38,9 +38,16 @@ function makeCloseListen(post_id){
 	})
 }
 
+function makeVideoCloseListen(post_id){
+	$('#video-' + post_id + ' .video-close').click(function(){
+		$('#thumn_' + post_id).show();
+		$('#video-' + post_id).hide();
+	})
+}
+
 function makeImg(){
-	$('ul.img_thumb li').unbind("click");
-	$('ul.img_thumb li').click(function(){
+	$('ul.img_thumb li.thumbnail').unbind("click");
+	$('ul.img_thumb li.thumbnail').click(function(){
 		var show_eq = $(this).index();
 		var show_id;
 		post_id = $(this).parent().attr('date-postid');
@@ -50,17 +57,23 @@ function makeImg(){
 
 		if (img_count > 1){
 			if (show_eq != (img_count -1)){
-				$('#preivew_box_' + post_id + ' .right').show();
+				$('#preivew_box_' + post_id + ' .right').css('display','block');
 			}
 			if (show_eq != 0) {
-				$('#preivew_box_' + post_id + ' .left').show();
+				$('#preivew_box_' + post_id + ' .left').css('display','block');
 			}
 		}
 		makeCloseListen(post_id);
-
 		show_img(post_id,show_eq);
 		img_show_num[post_id] = show_eq;
 		makePreNextListesn(post_id,img_count);
+	});
+	$('ul.img_thumb li.video').unbind("click");
+	$('ul.img_thumb li.video').click(function(){
+		post_id = $(this).parent().attr('date-postid');
+		$('#thumn_' + post_id).hide();
+		$('#video-' + post_id).show();
+		makeVideoCloseListen(post_id);
 	});
 
 }

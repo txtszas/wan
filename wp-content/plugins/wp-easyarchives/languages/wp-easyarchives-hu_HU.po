@@ -1,0 +1,128 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-EasyArchives 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-06-12 20:25+0800\n"
+"PO-Revision-Date: 2009-08-05 21:19+0100\n"
+"Last-Translator: János Csárdi-Braunstein <csardijanos@gmail.com>\n"
+"Language-Team: charlie <http://blogocska.org/tag/wordpress/>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Hungarian\n"
+"X-Poedit-Country: HUNGARY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: core.php:157
+msgid "F Y"
+msgstr "Y. F"
+
+#: core.php:186
+#, php-format
+msgid "Show detailed results for %1$s"
+msgstr "Részletes találat: %1$s"
+
+#: core.php:187
+#, php-format
+msgid "%1$s posts"
+msgstr "%1$s bejegyzés"
+
+#: core.php:205
+#, php-format
+msgid "View this post, &quot;%1$s&quot;"
+msgstr "Bejegyzés megtekintése, &quot;%1$s&quot;"
+
+#: core.php:304
+msgid "Year: "
+msgstr "Év:"
+
+#: core.php:305
+#: core.php:335
+msgid "loading"
+msgstr "betöltés"
+
+#: core.php:334
+msgid "Author: "
+msgstr "Szerző: "
+
+#: core.php:347
+msgid "Expand All"
+msgstr "Összes kibontása"
+
+#: core.php:356
+msgid "Collapse All"
+msgstr "Összes összecsukása"
+
+#: wp-easyarchives.php:33
+msgid "Monthly Archives"
+msgstr "Havi archívum"
+
+#: wp-easyarchives.php:89
+msgid "Title: "
+msgstr "Cím:"
+
+#: wp-easyarchives.php:96
+msgid "Number of archives to show: "
+msgstr "Hány hónapot mutasson:"
+
+#: wp-easyarchives.php:103
+msgid "Display mode: "
+msgstr "Megjelenítései mód:"
+
+#: wp-easyarchives.php:105
+msgid "Expand last month"
+msgstr "Utolsó hónap kibontása"
+
+#: wp-easyarchives.php:106
+msgid "Expand all months"
+msgstr "Összes hónap kibontása"
+
+#: wp-easyarchives.php:107
+msgid "Collapse all months"
+msgstr "Minden hónap összecsukása"
+
+#: wp-easyarchives.php:115
+msgid "Show page items."
+msgstr "Oldalakat is mutasson."
+
+#: wp-easyarchives.php:131
+msgid "The monthly archives"
+msgstr "Havi archívum"
+
+#: wp-easyarchives.php:132
+#: wp-easyarchives.php:133
+#: wp-easyarchives.php:166
+msgid "WP-EasyArchives"
+msgstr "WP-EasyArchives"
+
+#: wp-easyarchives.php:175
+msgid "WP-EasyArchives Options"
+msgstr "WP-EasyArchives Beállítások"
+
+#: wp-easyarchives.php:180
+msgid "JavaScript Library"
+msgstr "JavaScript Library"
+
+#: wp-easyarchives.php:184
+msgid "Use normal JavaScript library that is supported by this plugin."
+msgstr "A pluginba épített JavaScript Library használata."
+
+#: wp-easyarchives.php:189
+msgid "Use jQuery library that is supported by WordPress."
+msgstr "WordPress által hozott JavaScript Librarí használata."
+
+#: wp-easyarchives.php:194
+msgid "Custom jQuery."
+msgstr "Egyedi jQuery."
+
+#: wp-easyarchives.php:197
+msgid "Please input the URL of jQuery:"
+msgstr "Kérlek add meg a jQuery URL-ét:"
+
+#: wp-easyarchives.php:206
+msgid "Save Changes"
+msgstr "Változtatások mentése"
+

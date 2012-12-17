@@ -9,7 +9,7 @@
  *	'options': (string|array) Used to overwrite options set in WP-Admin -> Settings -> PageNavi
  *	'query': (object) A WP_Query instance
  */
-function wp_pagenavi( $args = array() ) {
+function wp_pagenavi( $args = array(),$style) {
 	if ( !is_array( $args ) ) {
 		$argv = func_get_args();
 		$args = array();
@@ -62,6 +62,7 @@ function wp_pagenavi( $args = array() ) {
 		$start_page = 1;
 
 	$out = '';
+	$options['style'] = $style;
 	switch ( intval( $options['style'] ) ) {
 		// Normal
 		case 1:
@@ -79,10 +80,15 @@ function wp_pagenavi( $args = array() ) {
 				$first_text = str_replace( '%TOTAL_PAGES%', number_format_i18n( $total_pages ), $options['first_text'] );
 				$out .= $instance->get_single( 1, 'first', $first_text, '%TOTAL_PAGES%' );
 			}
-
+			$nextPage = '';
+			$nextPage = '<div class="nextPage">';
 			// Previous
-			if ( $paged > 1 && !empty( $options['prev_text'] ) )
-				$out .= $instance->get_single( $paged - 1, 'previouspostslink', $options['prev_text'] );
+			if ( $paged > 1 && !empty( $options['prev_text'] ) ){
+				$nextPage .= $instance->get_single( $paged - 1, 'previouspostslink', $options['prev_text'] );
+			}else{
+
+			}
+				
 
 			if ( $start_page >= 2 && $pages_to_show < $total_pages ) {
 				if ( !empty( $options['dotleft_text'] ) )
@@ -139,13 +145,21 @@ function wp_pagenavi( $args = array() ) {
 			}
 
 			// Next
-			if ( $paged < $total_pages && !empty( $options['next_text'] ) )
-				$out .= $instance->get_single( $paged + 1, 'nextpostslink', $options['next_text'] );
+
+
+			if ( $paged < $total_pages && !empty( $options['next_text'] ) ) {
+				$nextPage .= $instance->get_single( $paged + 1, 'nextpostslink current', $options['next_text'] );
+			}
+				
 
 			if ( $end_page < $total_pages ) {
 				// Last
 				$out .= $instance->get_single( $total_pages, 'last', $options['last_text'], '%TOTAL_PAGES%' );
 			}
+			$nextPage .= '</div>';
+			$out = $nextPage . $out;
+			$out = $out.'跳到<input type="text" id="gopage">页<button type="button" onclick="document.location.href = \''. wan_get_page_link() .'paged=\' +$(\'#gopage\').val()">确认</button>';
+			$out = $before . "<div class='wp-pagenavi'>\n$out\n</div>" . $after;
 			break;
 
 		// Dropdown
@@ -170,8 +184,101 @@ function wp_pagenavi( $args = array() ) {
 			$out .= "</select>\n";
 			$out .= "</form>\n";
 			break;
+		case 3:
+						// Text
+			if ( !empty( $options['pages_text'] ) ) {
+				$pages_text = str_replace(
+					array( "%CURRENT_PAGE%", "%TOTAL_PAGES%" ),
+					array( number_format_i18n( $paged ), number_format_i18n( $total_pages ) ),
+				$options['pages_text'] );
+				$out .= "<span class='pages'>$pages_text</span>";
+			}
+
+			if ( $start_page >= 2 && $pages_to_show < $total_pages ) {
+				// First
+				$first_text = str_replace( '%TOTAL_PAGES%', number_format_i18n( $total_pages ), $options['first_text'] );
+				$out .= $instance->get_single( 1, 'first', $first_text, '%TOTAL_PAGES%' );
+			}
+			// Previous
+			if ( $paged > 1 && !empty( $options['prev_text'] ) ){
+				$out .= $instance->get_single( $paged - 1, 'previouspostslink', $options['prev_text'] );
+			}else{
+
+			}
+				
+
+			if ( $start_page >= 2 && $pages_to_show < $total_pages ) {
+				if ( !empty( $options['dotleft_text'] ) )
+					$out .= "<span class='extend'>{$options['dotleft_text']}</span>";
+			}
+
+			// Smaller pages
+			$larger_pages_array = array();
+			if ( $larger_page_multiple )
+				for ( $i = $larger_page_multiple; $i <= $total_pages; $i+= $larger_page_multiple )
+					$larger_pages_array[] = $i;
+
+			$larger_page_start = 0;
+			foreach ( $larger_pages_array as $larger_page ) {
+				if ( $larger_page < ($start_page - $half_page_start) && $larger_page_start < $larger_page_to_show ) {
+					$out .= $instance->get_single( $larger_page, 'smaller page', $options['page_text'] );
+					$larger_page_start++;
+				}
+			}
+
+			if ( $larger_page_start )
+				$out .= "<span class='extend'>{$options['dotleft_text']}</span>";
+
+			// Page numbers
+			$timeline = 'smaller';
+			foreach ( range( $start_page, $end_page ) as $i ) {
+				if ( $i == $paged && !empty( $options['current_text'] ) ) {
+					$current_page_text = str_replace( '%PAGE_NUMBER%', number_format_i18n( $i ), $options['current_text'] );
+					$out .= "<span class='current'>$current_page_text</span>";
+					$timeline = 'larger';
+				} else {
+					$out .= $instance->get_single( $i, "page $timeline", $options['page_text'] );
+				}
+			}
+
+			// Large pages
+			$larger_page_end = 0;
+			$larger_page_out = '';
+			foreach ( $larger_pages_array as $larger_page ) {
+				if ( $larger_page > ($end_page + $half_page_end) && $larger_page_end < $larger_page_to_show ) {
+					$larger_page_out .= $instance->get_single( $larger_page, 'larger page', $options['page_text'] );
+					$larger_page_end++;
+				}
+			}
+
+			if ( $larger_page_out ) {
+				$out .= "<span class='extend'>{$options['dotright_text']}</span>";
+			}
+			$out .= $larger_page_out;
+
+			if ( $end_page < $total_pages ) {
+				if ( !empty( $options['dotright_text'] ) )
+					$out .= "<span class='extend'>{$options['dotright_text']}</span>";
+			}
+
+			// Next
+
+
+			if ( $paged < $total_pages && !empty( $options['next_text'] ) ) {
+				$out .= $instance->get_single( $paged + 1, 'nextpostslink current', $options['next_text'] );
+			}
+				
+
+			if ( $end_page < $total_pages ) {
+				// Last
+				$out .= $instance->get_single( $total_pages, 'last', $options['last_text'], '%TOTAL_PAGES%' );
+			}
+			$out = $out.'跳到<input type="text" id="gopage">页<button type="button" onclick="document.location.href = \''. wan_get_page_link() .'paged=\' +$(\'#gopage\').val()">确认</button>';
+			$out = $before . "<div class='wp-pagenavi-top'>\n$out\n</div>" . $after;
+			break;
 	}
-	$out = $before . "<div class='wp-pagenavi'>\n$out\n</div>" . $after;
+
+	
 
 	$out = apply_filters( 'wp_pagenavi', $out );
 
@@ -287,3 +394,59 @@ class PageNavi_Core {
 	}
 }
 
+
+function wan_get_page_link($pagenum = 1, $escape = true ) {
+	global $wp_rewrite;
+
+	$pagenum = (int) $pagenum;
+
+	$request = remove_query_arg( 'paged' );
+
+	$home_root = parse_url(home_url());
+	$home_root = ( isset($home_root['path']) ) ? $home_root['path'] : '';
+	$home_root = preg_quote( trailingslashit( $home_root ), '|' );
+
+	$request = preg_replace('|^'. $home_root . '|', '', $request);
+	$request = preg_replace('|^/+|', '', $request);
+
+	if ( !$wp_rewrite->using_permalinks() || is_admin() ) {
+		$base = trailingslashit( get_bloginfo( 'url' ) );
+
+		if ( $request == '') {
+			//$result = add_query_arg( 'paged', $pagenum, $base . $request );
+			$result = $base . '?';
+		} else {
+			$result = $base . $request . '&';
+		}
+	} else {
+		$qs_regex = '|\?.*?$|';
+		preg_match( $qs_regex, $request, $qs_match );
+
+		if ( !empty( $qs_match[0] ) ) {
+			$query_string = $qs_match[0];
+			$request = preg_replace( $qs_regex, '', $request );
+		} else {
+			$query_string = '';
+		}
+
+		$request = preg_replace( "|$wp_rewrite->pagination_base/\d+/?$|", '', $request);
+		$request = preg_replace( '|^index\.php|', '', $request);
+		$request = ltrim($request, '/');
+
+		$base = trailingslashit( get_bloginfo( 'url' ) );
+
+		if ( $wp_rewrite->using_index_permalinks() && ( $pagenum > 1 || '' != $request ) )
+			$base .= 'index.php/';
+
+		if ( $pagenum > 1 ) {
+			$request = ( ( !empty( $request ) ) ? trailingslashit( $request ) : $request ) . user_trailingslashit( $wp_rewrite->pagination_base . "/" . $pagenum, 'paged' );
+		}
+
+		$result = $base . $request . $query_string;
+	}
+
+	if ( $escape )
+		return esc_url( $result );
+	else
+		return esc_url_raw( $result );
+}

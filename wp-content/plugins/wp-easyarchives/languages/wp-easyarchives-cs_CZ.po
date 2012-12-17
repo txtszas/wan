@@ -1,0 +1,97 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: wp-archives\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-02-05 15:15+0900\n"
+"PO-Revision-Date: 2009-03-24 15:36+0100\n"
+"Last-Translator: Ladislav Prskavec <ladislav@prskavec.net>\n"
+"Language-Team: Ladislav Prskavec <ladislav@prskavec.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Czech\n"
+"X-Poedit-Country: CZECH REPUBLIC\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: core.php:149
+msgid "F Y"
+msgstr "F Y"
+
+#: core.php:167
+#, php-format
+msgid "Show detailed results for %1$s"
+msgstr "Zobrazit výpis příspěvků pro %1$s"
+
+#: core.php:168
+#, php-format
+msgid "%1$s posts"
+msgstr "počet příspěvků: %1$s"
+
+#: core.php:228
+#, php-format
+msgid "View this post, &quot;%1$s&quot;"
+msgstr "Ukázat tento příspěvek  &quot;%1$s&quot;"
+
+#: core.php:310
+msgid "Year: "
+msgstr "Rok: "
+
+#: core.php:311
+#: core.php:341
+msgid "loading"
+msgstr "nahrávám"
+
+#: core.php:340
+msgid "Author: "
+msgstr "Autor:"
+
+#: core.php:353
+msgid "Expand All"
+msgstr "Rozbalit vše"
+
+#: core.php:362
+msgid "Collapse All"
+msgstr "Sbalit vše"
+
+#: wp-easyarchives.php:33
+msgid "Monthly Archives"
+msgstr "Měsíční archív"
+
+#: wp-easyarchives.php:89
+msgid "Title: "
+msgstr "Nadpis:"
+
+#: wp-easyarchives.php:96
+msgid "Number of archives to show: "
+msgstr "Počet archívů k zobrazení:"
+
+#: wp-easyarchives.php:103
+msgid "Display mode: "
+msgstr "Zobrazovací mód:"
+
+#: wp-easyarchives.php:105
+msgid "Expand last month"
+msgstr "Rozbalit poslední měsíc"
+
+#: wp-easyarchives.php:106
+msgid "Expand all months"
+msgstr "Rozbalit všechny měsíce:"
+
+#: wp-easyarchives.php:107
+msgid "Collapse all months"
+msgstr "Sbalit všechny měsíce:"
+
+#: wp-easyarchives.php:115
+msgid "Show page items."
+msgstr "Zobrazit položky na stránce"
+
+#: wp-easyarchives.php:131
+msgid "The monthly archives"
+msgstr "Měsíční archív"
+
+#: wp-easyarchives.php:132
+#: wp-easyarchives.php:133
+msgid "WP-EasyArchives"
+msgstr "WP-EasyArchives"
+

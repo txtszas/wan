@@ -35,7 +35,8 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
 			'views'		=> 11,
 			'cat_link'	=> get_category_link($categories[0]->term_id),
 			'cat_id'	=> $categories[0]->cat_ID,
-			'cat_name'	=> $categories[0]->name
+			'cat_name'	=> $categories[0]->name,
+			'ding_cai'	=> GetWtiLikePost('put')
 		);
 endwhile;
 
