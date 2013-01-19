@@ -45,6 +45,25 @@ a:hover {
   padding: 19px 15px 10px 15px;
   display: none;
 }
+#top-nav #login-box {
+  width: 256px;
+  background: white;
+  padding: 8px;
+  position: absolute;
+  right: 0;
+  top: 24px;
+  display: none;
+}
+#login {
+  width: 71px;
+  height: 22px;
+  background: #fff;
+  float: right;
+  margin-top: 2px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 22px;
+}
 .container {
   width: 1000px;
   margin: 0 auto;
@@ -108,15 +127,15 @@ header nav .nav-line {
 }
 .main-left {
   float: left;
-  width: 688px;
-  padding: 0 18px 100px 12px;
+  width: 675px;
+  padding: 0 13px 100px 12px;
   clear: left;
   position: relative;
 }
 #sidebar {
   float: right;
-  width: 257px;
-  padding: 0 12px 0 11px;
+  width: 275px;
+  padding: 0 12px 0 12px;
   clear: right;
   border-left: 1px solid #f6f6f6;
 }
@@ -226,10 +245,10 @@ header nav .nav-line {
   clear: both;
 }
 article {
-  background: url(images/artical_bg.png) bottom no-repeat;
   margin-top: 13px;
   padding-left: 8px;
   padding-bottom: 10px;
+  border-bottom: 1px solid #b7b7b7;
 }
 article .entry-title {
   margin-bottom: 11px;
@@ -260,7 +279,7 @@ article .entry-title h4 {
   line-height: 30px;
   background: #d4d645;
   text-align: center;
-  text-indent: -9999px;
+  color: #fff;
 }
 article .entry-title h4 a {
   color: #fff;
@@ -284,10 +303,11 @@ article .entry-title h2 {
   _margin-left: 33px;
   height: 37px;
   line-height: 27px;
+  margin-top: 3px;
 }
 article .entry-title h2 a {
-  font-size: 16px;
-  color: #323232;
+  font-size: 20px;
+  color: #4c9699;
 }
 article .entry-title h2 a:hover {
   color: #1fb4ff;
@@ -366,7 +386,6 @@ article .entry-more a:hover {
 .preivew_box {
   position: relative;
   display: none;
-  height: 380px;
 }
 .preivew_box .left,
 .preivew_box .right {
@@ -414,7 +433,6 @@ article .entry-more a:hover {
   display: none;
 }
 .img_preview li img {
-  max-height: 380px;
   display: inline-block;
   vertical-align: middle;
   cursor: url(http://img.t.sinajs.cn/t5/style/images/common/small.cur), auto !important;
@@ -428,6 +446,18 @@ article .entry-more a:hover {
 }
 #rss li {
   background: none;
+  font-size: 14px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+#rss li a {
+  line-height: 20px;
+  color: #3a3a3a;
+}
+#rss li a img {
+  position: relative;
+  top: 5px;
+  margin-right: 13px;
 }
 #linkcat-2 li {
   margin-bottom: 0;
@@ -742,7 +772,7 @@ footer {
 }
 .carousel .big-car {
   float: left;
-  width: 456px;
+  width: 450px;
   height: 210px;
   background: #ccc;
   position: relative;
@@ -752,6 +782,9 @@ footer {
   left: 0;
   top: 0;
   display: none;
+}
+.carousel .slide li a img {
+  width: 450px;
 }
 .carousel .slide-title {
   position: absolute;
@@ -763,7 +796,7 @@ footer {
   bottom: 0;
   height: 25px;
   background: rgba(51, 51, 51, 0.5);
-  width: 447px;
+  width: 441px;
   padding-left: 9px;
   display: none;
 }
@@ -796,11 +829,14 @@ footer {
   float: right;
 }
 .carousel .right .right-car {
-  width: 222px;
-  height: 99px;
+  width: 218px;
+  height: 98px;
   background: #ccc;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   position: relative;
+}
+.carousel .right .right-car a img {
+  width: 218px;
 }
 .carousel .right .right-desc {
   position: absolute;

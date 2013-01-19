@@ -30,8 +30,25 @@ function pageLoadAjax(){
 		$post = $the_query->post;
 		$attachInfo = getAttachementsByPostId($post->ID);
 		$categories = get_the_category($post->ID);
-		//var_dump($post);
-		$data[] = array(
+
+		if ($categories[0]->cat_ID == 4) {
+			$data[] = array(
+			'id' 		=> $post->ID,
+			'title'		=> $post->post_title,
+			'excerpt'	=> get_the_excerpt(),
+			'link'		=> get_permalink(),
+			'post_on'	=> get_posted_on(),
+			'attachInfo'=> getImageList($attachInfo,$post->ID,$post,$maxWidth,$maginRight),
+			'comment'	=> $post->comment_count,
+			'post_content' 	=> $post->post_content,
+			'views'		=> 11,
+			'cat_link'	=> get_category_link($categories[0]->term_id),
+			'cat_id'	=> $categories[0]->cat_ID,
+			'cat_name'	=> $categories[0]->name,
+			'ding_cai'	=> GetWtiLikePost('put')
+			);
+		}else{
+			$data[] = array(
 			'id' 		=> $post->ID,
 			'title'		=> $post->post_title,
 			'excerpt'	=> get_the_excerpt(),
@@ -45,6 +62,9 @@ function pageLoadAjax(){
 			'cat_name'	=> $categories[0]->name,
 			'ding_cai'	=> GetWtiLikePost('put')
 			);
+		}
+		//var_dump($post);
+
 	endwhile;
 	//var_dump($data);
 	echo json_encode($data);
@@ -144,7 +164,7 @@ function getImageList($attachInfo,$post_id,$post,$maxWidth,$marginRight){
 
 		$imgList = '<ul id="thumn_'.$post_id.'" class="img_thumb" date-postid = "'.$post_id.'">';
 		//生成视频缩略图
-		if (has_video($post->post_content)) {
+		if (has_video($post->post_content) && getImageUrl($post->post_content) != '') {
 			$imgList .= '<li class="video">';
 			$imgUrl = getImageUrl($post->post_content);
 			$imgList .= '<img src="'. $imgUrl . '" height="120"><img src="'.get_template_directory_uri().'/images/play.png" class="video-play"/>' ;
@@ -328,9 +348,11 @@ function getImageUrl($code,$size = 'normal'){
 		}
 		return $video['item']['imagelink'];
 	}elseif (preg_match('/tudou.com/', $src)) {
-		$videoInfo = file_get_contents('http://api.tudou.com/v3/gw?method=repaste.info.get&appKey=231e26972d881499&format=json&url='.$src);
+		preg_match('/(?<=\/v\/)\w+/', $src,$getmatch);
+		$itemCodes = $getmatch[0];
+		$videoInfo = file_get_contents('http://api.tudou.com/v3/gw?method=item.info.get&appKey=231e26972d881499&format=json&itemCodes=' . $itemCodes);
 		$video = json_decode($videoInfo,true);
-		return $video['repasteInfo']['itemInfo']['picUrl'];
+		return $video['multiResult']['results'][0]['picUrl'];
 	}elseif (preg_match('/56.com/', $src)) {
 		preg_match('/(?<=v_).*(?=.swf)/', $src, $match);
 		$appkey = '3000001205';
@@ -346,23 +368,37 @@ function getImageUrl($code,$size = 'normal'){
 		$content = file_get_contents('http://v.ku6.com/fetch.htm?t=getVideo4Player&vid='.$match[0]);
 		$video = json_decode($content,true);
 		return $video['data']['picpath'];
-	}elseif (preg_match('/sohu.com/', $src)) {
-		$app_key = 'e22df6eaace9773c47976cbc10f470c6';
-		if (preg_match('/(?<=sohu.com\/)\d+(?=\/v.swf)/', $src,$match1)){
-			$vid = $match1[0];
-		}elseif (preg_match('/(?<=id\=)\d+(?=&xuid)/', $src,$match2)){
-			$vid = $match2[0];
-		}
-		$content = file_get_contents('http://api.tv.sohu.com/set/info/v/' . $vid . '.json?api_key='.$app_key);
-		$video = json_decode($content,true);
-		return $video['data']['video_big_pic'];
+	}elseif (preg_match('/sohu.com/', $src) && 0) {
+		// $app_key = 'e22df6eaace9773c47976cbc10f470c6';
+		// if (preg_match('/(?<=sohu.com\/)\d+(?=\/v.swf)/', $src,$match1)){
+		// 	$vid = $match1[0];
+		// }elseif (preg_match('/(?<=id\=)\d+(?=&xuid)/', $src,$match2)){
+		// 	$vid = $match2[0];
+		// }
+		// $content = file_get_contents('http://api.tv.sohu.com/set/info/v/' . $vid . '.json?api_key='.$app_key);
+		// $video = json_decode($content,true);
+		// return $vid;
+	}else{
+		return get_template_directory_uri().'/images/video-prview.jpg';
 	}
 }
 
-
 function get_video_code($code){
 	preg_match('/<embed.*<\/embed>/', $code, $match);
-	return $match[0];
+	$codeString = $match[0];
+	preg_match('/(?<=height=)["\']?\d+/', $codeString, $heightMatch);
+	preg_match('/(?<=width=)["\']?\d+/', $codeString, $widthMatch);
+	preg_match('/\d+/', $heightMatch[0], $heightMatch2);
+	$height = $heightMatch2[0];
+	preg_match('/\d+/', $widthMatch[0], $widthMatch2);
+	$width = $widthMatch2[0];
+	$rWidth = 680;
+	$rheight = (680 * $height)/$width;
+	if ($height && $width) {
+		$codeString = str_replace($height, $rheight, $codeString);
+		$codeString = str_replace($width, $rWidth, $codeString);
+	}
+	return $codeString;
 }
 
 
@@ -443,6 +479,21 @@ function cutText($_text, $_length, $_showDot = true)
         }
     }
 
+function echo_first_image($width="100",$height="100",$post) {    
+    //通过正则表达式匹配文章内容中的图片标签   
+    $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+    //第一张图片的html代码，下面加了那个缩放的js哦。。如果你不打算缩放，请删除  
+    $first_img = '<img src="'. $matches[1][0] .'" width="'.$width.'" height="'.$height.'" alt="'.$post->post_title .'"/>';  
+    if(empty($matches[1][0])){ //如果文章中没有图片，就调用下面的的默认代码,自己改图片url，也有缩放js  
+        $first_img = '<img src="'. get_bloginfo('template_url') .'/images/defalt.jpg" alt="'.$post->post_title .'" width="'.$width.'" height="'.$height.'" onload="javascript:DrawImage(this,'.$width.','.$height.')" />';  
+    }  
+    //输出代码  
+    echo  $first_img;   
+} 
+function custom_excerpt_length( $length ) {
+	return 150;    //填写需要截取的字符数，1个汉字=2个字符
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 ?>
 
 <?php add_filter( 'show_admin_bar', '__return_false' ); ?>

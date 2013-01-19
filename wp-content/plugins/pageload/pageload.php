@@ -24,7 +24,24 @@ $data = array();
 while ( $the_query->have_posts() ) : $the_query->the_post();
 	$attachInfo = getAttachementsByPostId($post->ID);
 	$categories = get_the_category($post->ID);
-	$data[] = array(
+	if ($categories[0]->cat_ID == 4){
+		$data[] = array(
+			'id' 		=> $post->ID,
+			'title'		=> $post->post_title,
+			'excerpt'	=> get_the_excerpt(),
+			'link'		=> get_permalink(),
+			'post_on'	=> get_posted_on(),
+			'attachInfo'=> getImageList($attachInfo,$post->ID),
+			'post_content' 	=> $post->post_content,
+			'comment'	=> $post->comment_count,
+			'views'		=> 12,
+			'cat_link'	=> get_category_link($categories[0]->term_id),
+			'cat_id'	=> $categories[0]->cat_ID,
+			'cat_name'	=> $categories[0]->name,
+			'ding_cai'	=> GetWtiLikePost('put')
+		);
+	}else{
+		$data[] = array(
 			'id' 		=> $post->ID,
 			'title'		=> $post->post_title,
 			'excerpt'	=> get_the_excerpt(),
@@ -32,12 +49,14 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
 			'post_on'	=> get_posted_on(),
 			'attachInfo'=> getImageList($attachInfo,$post->ID),
 			'comment'	=> $post->comment_count,
-			'views'		=> 11,
+			'views'		=> 13,
 			'cat_link'	=> get_category_link($categories[0]->term_id),
 			'cat_id'	=> $categories[0]->cat_ID,
 			'cat_name'	=> $categories[0]->name,
 			'ding_cai'	=> GetWtiLikePost('put')
 		);
+	}
+	
 endwhile;
 
 

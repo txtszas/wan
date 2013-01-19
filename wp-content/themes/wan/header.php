@@ -40,17 +40,31 @@
 	<body>
 		<div id="top-nav">
 			<div class="container">
-
+				<div id="login">
+					<?php
+					if (is_user_logged_in()){
+						global $current_user;
+						echo $current_user->display_name;
+					}else{
+						echo '登录';
+					}
+					?>
+				</div>
+				<div id="login-box">
+					<?php
+						login_with_ajax();
+					?>
+				</div>
 
 <script type="text/javascript">
 var loginBox = 0;
-$('#loging').click(function(){
+$('#login').click(function(){
 	if (loginBox == 0){
-		$('.login-box').fadeIn();
+		$('#login-box').slideDown();
 		$('.right-box').addClass('active');
 		loginBox = 1;
 	}else{
-		$('.login-box').fadeOut();
+		$('#login-box').slideUp();
 		$('.right-box').removeClass('active');
 		loginBox = 0;
 	}

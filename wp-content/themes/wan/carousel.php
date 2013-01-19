@@ -1,48 +1,31 @@
+<?php
+//获取轮播数据
+$lunbo = array(
+	'numberposts' => 4,
+	'category'    => 25,
+);
+$lunbolist = get_posts( $lunbo );
+?>
+
 <div class="carousel">
 	<div class="big-car">
 		<ul class="slide">
+	<?php foreach ($lunbolist as $k => $post) { ?>
 			<li>
-				<a href="/?p=744">
-					<img src="<?php echo get_template_directory_uri(); ?>/images/slide-1.jpg">
+				<a href="<?php the_permalink(); ?>">
+					<?php echo_first_image('456', '210', $post); ?> 
 				</a>
 			</li>
-			<li>
-				<a href="/?p=737">
-					<img src="<?php echo get_template_directory_uri(); ?>/images/slide-2.jpg">
-				</a>
-			</li>
-			<li>
-				<a href="/?p=740">
-					<img src="<?php echo get_template_directory_uri(); ?>/images/slide-3.jpg">
-				</a>
-			</li>
-			<li>
-				<a href="/?p=748">
-					<img src="<?php echo get_template_directory_uri(); ?>/images/slide-4.jpg">
-				</a>
-			</li>
+	<?php } ?>
 		</ul>
 		<ul class="slide-title">
+			<?php foreach ($lunbolist as $k => $post) { ?>
 			<li >
-				<a href="/?p=744">
-					受奥巴马接见的华裔女孩
+				<a href="<?php the_permalink(); ?>">
+					<?php echo $post->post_title ?>
 				</a>
 			</li>
-			<li>
-				<a href="#">
-					YY上市首日收报11.31美元涨8% 市值6亿美元
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					这里是中国的“北方西湖”，更是世界上最大的火山熔岩堰塞湖
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					超帅的裸眼3D演唱会？世界最尖端技术，舞台渲染力的新高度
-				</a>
-			</li>
+			<?php } ?>
 		</ul>
 
 		<ul class="slide-num">
@@ -59,22 +42,24 @@
 				4
 			</li>
 		</ul>
-
-
 	</div>
+<?php
+//获取轮播数据
+$right = array(
+	'numberposts' => 2,
+	'category'    => 26,
+);
+$rightlist = get_posts( $right );
+?>
 	<div class="right">
+<?php foreach ($rightlist as $k => $post) { ?>
 		<div class="right-car">
-			<a href="/?p=742">
-				<img src="<?php echo get_template_directory_uri(); ?>/images/slide-s1.jpg">
-				<div class="right-desc">腾讯的一次惨败：搜搜输在哪？</div>
+			<a href="<?php the_permalink(); ?>">
+				<?php echo_first_image('222', '98', $post); ?> 
+				<div class="right-desc"><?php echo $post->post_title ?></div>
 			</a>
 		</div>
-		<div class="right-car">
-			<a href="/?p=746">
-				<img src="<?php echo get_template_directory_uri(); ?>/images/slide-s2.jpg">
-				<div class="right-desc">高科技战争装备简直就是逆天了</div>
-			</a>
-		</div>
+<?php } ?>
 	</div>
 </div>
 <script type="text/javascript">

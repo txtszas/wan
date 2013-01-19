@@ -40,16 +40,16 @@
 			while ( have_posts() ) : the_post(); 
 				$s++;
 				if ($s <= 5) {
-			?>
-
-						<?php get_template_part('content','index'); ?>
-
-			<?php 
-			}else{
-				break;
-			}
+					$categories = get_the_category($post->ID);
+					if ($categories[0]->cat_ID == 4) {
+						get_template_part('content','piece');
+					}else{
+						get_template_part('content','index');
+					}
+				}else{
+					break;
+				}
 			endwhile; 
-
 			?>
 
 
@@ -81,7 +81,7 @@
 loadPage = {
 		//获取当前滚动条与底部距离
 		open:true
-		,done:0
+		,status:0
 		,paged:<?php echo $paged == 0 ? 1 : $paged ; ?>
 		,realPage:2
 		,loadLimit:3
@@ -94,21 +94,20 @@ loadPage = {
 			})
 		}
 		,checkHeight: function(){
-			if (this.getScrollFromBottom() < 400 ){
-				if (loadPage.done < 1) {
+			if (this.getScrollFromBottom() < 400 && this.getScrollFromBottom() >0 && this.status == 0){
+				this.status =1
 					if (this.realPage <= this.loadLimit) {
+						var that = this 
 						this.showLoading();
 						this.setTime = setTimeout( function(){
         					loadPage.loadData();
         				}, 1000 );
-        				loadPage.done = 1;
-						this.realPage++;
 					}else{
 						$('.wp-pagenavi').show();
 					}
-				}
-			}else{
-				this.done = 0;
+
+			}else if(this.status == 2){
+				this.status = 0;
 			}
 		}
 		,loadData: function(){
@@ -119,7 +118,7 @@ loadPage = {
 					dataType:'json',
 					success:function(data){
 						that.inputData(data);
-
+						that.realPage++;
 					}});
 		}
 		,inputData:function(itemList){
@@ -137,9 +136,11 @@ loadPage = {
 			$('.loading').fadeIn();
 		}
 		,addArticle:function(article){
+			this.status = 1;
 			var article;
-			data = '<article id="post-'+article.id+'" class="well" style="display:none">\
-							<div class="entry-title">\
+			if (article.cat_id == 4) {
+				data = '<article id="post-'+article.id+'" class="well" style="display:none">\
+						<div class="entry-title">\
 								<div class="cat-title">\
 								<h4 class="cat_'+article.cat_id+'">\
 									<a href="'+article.cat_link+'">'+article.cat_name+'</a></h4>\
@@ -150,7 +151,30 @@ loadPage = {
 							<div class="entry-meta">\
 								<div class="post_on">'+article.post_on+'</div>\
 								<div class="commit-views">\
-									<span class="commits">'+article.comment+'<div class="commit-arrow"></div></span>\
+									<span class="commits" title="评论">'+article.comment+'<div class="commit-arrow"></div></span>\
+								</div>\
+								<div class="ding-cai">\
+									'+article.ding_cai+'\
+								</div>\
+								<div class="clear"></div>\
+							</div>\
+							<div class="entry-excerpt of">\
+								'+article.post_content+'\
+							</div>';
+			}else{
+				data = '<article id="post-'+article.id+'" class="well" style="display:none">\
+						<div class="entry-title">\
+								<div class="cat-title">\
+								<h4 class="cat_'+article.cat_id+'">\
+									<a href="'+article.cat_link+'">'+article.cat_name+'</a></h4>\
+								</div>\
+								<h2><a href="'+article.link+'" > '+article.title+'</a></h2>\
+								<div class="clear"></div>\
+							</div>\
+							<div class="entry-meta">\
+								<div class="post_on">'+article.post_on+'</div>\
+								<div class="commit-views">\
+									<span class="commits" title="评论">'+article.comment+'<div class="commit-arrow"></div></span>\
 								</div>\
 								<div class="ding-cai">\
 									'+article.ding_cai+'\
@@ -162,9 +186,14 @@ loadPage = {
 							</div>';
 			data += '<div class="img-review">' + article.attachInfo + '</div>';
 			data += '<div class="entry-more"><a href="'+article.link+'" class="btn">阅读全文>></a>';
+			}
+
+			var that = this
 
 			$('#content').append(data);
-			$('article').fadeIn();
+			$('article').fadeIn('normal','swing',function(){
+				that.status = 2
+			});
 		} 
 	}
 	

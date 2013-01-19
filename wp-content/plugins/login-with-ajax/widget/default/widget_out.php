@@ -28,7 +28,7 @@
                     </div>
                 </div>
 
-                <?php //do_action('login_form'); ?>
+                <?php do_action('login_form'); ?>
                 <div class="control-group ">
                     <input type="submit" name="wp-submit" id="lwa_wp-submit" value="<?php _e('Log In'); ?>" tabindex="100" />
                 </div>
