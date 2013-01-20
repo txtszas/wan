@@ -661,24 +661,22 @@ function GetWtiLikePost($arg = null) {
 		$style = (get_option('wti_like_post_voting_style') == "") ? 'style1' : get_option('wti_like_post_voting_style');
 		
 		//$wti_like_post .= "<div id='watch_action'>";
-		$wti_like_post .= "<div id='watch_position' style='float:".$alignment."; '>";
-		$wti_like_post .= "<div id='action_like' >".
-							"<span class='like-".$post_id." like'><img title='".__($title_text_like, 'wti-like-post')."' id='like-".$post_id."' rel='like' class='lbg-$style jlk' src='".WP_PLUGIN_URL."/wti-like-post/images/pixel.gif'></span>".
+		$wti_like_post .= "<div id='watch_position' style='float:".$alignment."; ' class='commit-views'>";
+		$wti_like_post .= "<div id='action_like' class='commit-box like'>".
 							/*"<span class='like-".$post_id." like'><img title='".__($title_text_like, 'wti-like-post')."' id='like-".$post_id."' rel='like' class='jlk' src='".WP_PLUGIN_URL."/wti-like-post/images/thumb_up_".$style.".png'></span>".*/
-							"<span id='lc-".$post_id."' class='lc'>".$like_count."</span>".
+							"<span id='lc-".$post_id."' rel='like'>".$like_count."</span>顶".
 					   "</div>";
 		
 		if($show_dislike) {
-			$wti_like_post .= "<div id='action_unlike' >".
-								"<span class='unlike-".$post_id." unlike'><img title='".__($title_text_unlike, 'wti-like-post')."' id='unlike-".$post_id."' rel='unlike' class='unlbg-$style jlk' src='".WP_PLUGIN_URL."/wti-like-post/images/pixel.gif'></span>".
+			$wti_like_post .= "<div id='action_unlike' class='commit-box unlike'>".
 								/*"<span class='unlike-".$post_id." unlike'><img title='".__($title_text_unlike, 'wti-like-post')."' id='unlike-".$post_id."' rel='unlike' class='jlk' src='".WP_PLUGIN_URL."/wti-like-post/images/thumb_down_".$style.".png'></span>".*/
-								"<span id='unlc-".$post_id."' class='unlc'>".$unlike_count."</span>".
+								"<span id='unlc-".$post_id."' rel='unlike'>".$unlike_count."</span>踩".
 						   "</div> ";
 		}
 		
-		$wti_like_post .= "</div> ";
+		//$wti_like_post .= "</div> ";
          $wti_like_post .= "<div id='status-".$post_id."' class='status' style='float:".$alignment."; '>&nbsp;&nbsp;" . $msg . "</div>";
-		//$wti_like_post .= "</div><div id='clear'></div>";
+		$wti_like_post .= "</div><div id='clear'></div>";
      }
      
      if ($arg == 'put') {

@@ -125,9 +125,45 @@ loadPage = {
 			for(var key in itemList){
 				this.addArticle(itemList[key]);
 			}
+			this.clearClickevent();
 			makeImg();
 			link_post();
 			this.hiddenLoading();
+		}
+		,clearClickevent:function(){
+			 $('.like, .unlike').unbind("click");
+			      jQuery(".like, .unlike").click(function(){
+		          that= jQuery(this).find('span');
+		          var task = jQuery(that).attr("rel");
+		          var post_id = jQuery(that).attr("id");
+		          
+		          if(task == "like")
+		          {
+		               post_id = post_id.replace("lc-", "");
+		          }
+		          else
+		          {
+		               post_id = post_id.replace("unlc-", "");
+		          }
+		          
+		          //jQuery("#status-" + post_id).html("&nbsp;&nbsp;").addClass("loading-img");
+		          
+		          jQuery.ajax({
+		               type: "POST",
+		               url: blog_url + "/wp-content/plugins/wti-like-post/wti_like.php",
+		               data: "post_id=" + post_id + "&task=" + task + "&num=" + Math.random(),
+		               success: function(data){
+		                    jQuery("#status-" + post_id).fadeIn();
+		                    jQuery("#lc-" + post_id).html(data.like);
+		                    jQuery("#unlc-" + post_id).html(data.unlike);
+		                    jQuery("#status-" + post_id).empty().html(data.msg);
+		                    setTimeout(function(){
+		                         jQuery("#status-" + post_id).fadeOut();
+		                    },2000); 
+		               },
+		               dataType: "json"
+		          });
+     });
 		}
 		,hiddenLoading:function(){
 			$('.loading').hide();
@@ -150,17 +186,16 @@ loadPage = {
 							</div>\
 							<div class="entry-meta">\
 								<div class="post_on">'+article.post_on+'</div>\
-								<div class="commit-views">\
-									<span class="commits" title="评论">'+article.comment+'<div class="commit-arrow"></div></span>\
-								</div>\
-								<div class="ding-cai">\
-									'+article.ding_cai+'\
-								</div>\
-								<div class="clear"></div>\
 							</div>\
 							<div class="entry-excerpt of">\
 								'+article.post_content+'\
 							</div>';
+					data += '<div class="ding-cai">\
+						'+article.ding_cai+'\
+					</div>\
+					<div class="commit-views">\
+						<div class="commit-box" title="评论">'+article.comment+'评论</div>\
+					</div><div class="clear"></div>';
 			}else{
 				data = '<article id="post-'+article.id+'" class="well" style="display:none">\
 						<div class="entry-title">\
@@ -173,19 +208,20 @@ loadPage = {
 							</div>\
 							<div class="entry-meta">\
 								<div class="post_on">'+article.post_on+'</div>\
-								<div class="commit-views">\
-									<span class="commits" title="评论">'+article.comment+'<div class="commit-arrow"></div></span>\
-								</div>\
-								<div class="ding-cai">\
-									'+article.ding_cai+'\
-								</div>\
 								<div class="clear"></div>\
 							</div>\
 							<div class="entry-excerpt of">\
 								'+article.excerpt+'\
 							</div>';
+			//data += '<div class="entry-more"><a href="'+article.link+'" class="btn">阅读全文</a></div>';
 			data += '<div class="img-review">' + article.attachInfo + '</div>';
-			data += '<div class="entry-more"><a href="'+article.link+'" class="btn">阅读全文>></a>';
+			data += '<div class="ding-cai">\
+						'+article.ding_cai+'\
+					</div>\
+					<div class="commit-views">\
+						<div class="commit-box" title="评论">'+article.comment+'评论</div>\
+					</div><div class="clear"></div>';
+			
 			}
 
 			var that = this

@@ -49,7 +49,11 @@
 	color: gray;
 	padding: 0 7px 0 7px;
 	font-size: 12px;
-	line-height: 25px;	
+	line-height: 25px;
+	position: absolute;
+	top: -22px;
+	right: -23px;
+	width: 100px;	
 }
 .status .status_msg {
 	width: auto;

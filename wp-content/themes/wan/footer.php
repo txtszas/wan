@@ -23,11 +23,37 @@ $('.backtotop').click(function(){
 
 		<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/help.js"></script>
 		<script type="text/javascript">
-			<script type="text/javascript">
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
 document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F14cd35aba7f43383b0ae54ac266f63c9' type='text/javascript'%3E%3C/script%3E"));
 </script>
 
+
+
+		</script>
+		<div id="backtop">
+			<img src="<?php echo get_template_directory_uri(); ?>/images/backtop.png">
+		</div>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+//当滚动条的位置处于距顶部100像素以下时，跳转链接出现，否则消失
+$(function () {
+$(window).scroll(function(){
+	if ($(window).scrollTop()>100){
+		$("#backtop").fadeIn(1500);
+	}else{
+		$("#backtop").fadeOut(1500);
+	}
+});
+//当点击跳转链接后，回到页面顶部位置
+$("#backtop").click(function(){
+$('body,html').animate({scrollTop:0},500);
+return false;
+});
+});
+});
+</script>
 
 
 		</script>

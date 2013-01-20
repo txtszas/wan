@@ -8,7 +8,10 @@ $lunbolist = get_posts( $lunbo );
 ?>
 
 <div class="carousel">
+
 	<div class="big-car">
+		<div class="pre-slide"></div>
+		<div class="next-slide"></div>
 		<ul class="slide">
 	<?php foreach ($lunbolist as $k => $post) { ?>
 			<li>
@@ -67,6 +70,18 @@ $rightlist = get_posts( $right );
 nowCurrent = 0;
 pmouseOn(nowCurrent);
 t = setInterval(showAuto, 5000);
+$('.pre-slide').click(function(){
+	nowCurrent = nowCurrent == 0 ? 3 : --nowCurrent;
+	pmouseOn(nowCurrent);
+	t=window.clearInterval(t);
+	t = setInterval(showAuto, 5000);
+});
+$('.next-slide').click(function(){
+	nowCurrent = nowCurrent >= 3 ? 0 : ++nowCurrent;
+	pmouseOn(nowCurrent);
+	t=window.clearInterval(t);
+	t = setInterval(showAuto, 5000);
+});
 function pmouseOn(n){
 	$('.slide li').fadeOut();
 	$('.slide-title li').fadeOut();
@@ -75,6 +90,17 @@ function pmouseOn(n){
 	$('.slide-num li').removeClass('active');
 	$('.slide-num li').eq(n).addClass('active');
 }
+
+function preSlide(){
+	nowCurrent = nowCurrent == 0 ? 3 : --nowCurrent;
+	pmouseOn(nowCurrent);
+}
+
+function nextSlide(){
+	nowCurrent = nowCurrent >= 3 ? 0 : ++nowCurrent;
+	pmouseOn(nowCurrent);
+}
+
 function showAuto()
 	{
 		nowCurrent = nowCurrent >= 3 ? 0 : ++nowCurrent;

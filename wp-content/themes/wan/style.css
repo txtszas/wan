@@ -63,6 +63,7 @@ a:hover {
   font-size: 12px;
   text-align: center;
   line-height: 22px;
+  cursor: pointer;
 }
 .container {
   width: 1000px;
@@ -131,13 +132,13 @@ header nav .nav-line {
   padding: 0 13px 100px 12px;
   clear: left;
   position: relative;
+  border-right: 1px solid #f6f6f6;
 }
 #sidebar {
   float: right;
   width: 275px;
   padding: 0 12px 0 12px;
   clear: right;
-  border-left: 1px solid #f6f6f6;
 }
 #sidebar .ad-img {
   margin-bottom: 15px;
@@ -214,7 +215,7 @@ header nav .nav-line {
 #list20 .left,
 #list20 .middle,
 #list20 .right {
-  width: 222px;
+  width: 220px;
 }
 #list20 .left li,
 #list20 .middle li,
@@ -352,36 +353,97 @@ article .entry-excerpt {
   clear: both;
   font-size: 14px;
   overflow: hidden;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 article .img-review {
   overflow: hidden;
 }
 article .entry-more {
   text-align: right;
+  padding-right: 16px;
+  background: url(images/readmore.png) right no-repeat;
 }
 article .entry-more a {
   font-size: 12px;
-  color: #4168b7;
+  color: #888888;
 }
 article .entry-more a:hover {
   color: #32508c;
 }
+article .readmore {
+  float: right;
+  font-size: 12px;
+  color: #888888;
+  display: block;
+  width: 51px;
+  background: url(images/readmore.png) right no-repeat;
+  padding-right: 16px;
+  margin-top: 4px;
+}
+article .commit-views {
+  float: right;
+}
+article .commit-views .commit-box {
+  float: right;
+  padding: 3px 5px;
+  font-size: 12px;
+  background: #f7f7f7;
+  margin-right: 1px;
+}
+article .commit-views .commit-box.like,
+article .commit-views .commit-box.unlike {
+  cursor: pointer;
+  -webkit-transition-property: color, background-color;
+  -moz-transition-property: color, background-color;
+  -o-transition-property: color;
+  -ms-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -ms-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+article .commit-views .commit-box.like:hover,
+article .commit-views .commit-box.unlike:hover {
+  background: #00B9BD;
+  color: #fff;
+}
 .clear {
   clear: both;
 }
-.img_thumb li {
+.img_thumb li.thumbnail {
   float: left;
   margin: 0 6px 6px 0;
 }
-.img_thumb li img {
+.img_thumb li.thumbnail img {
   cursor: url(http://img.t.sinajs.cn/t5/style/images/common/big.cur), auto !important;
+}
+.img_thumb li.video {
+  position: relative;
+  float: left;
+  margin: 0 6px 6px 0;
 }
 .img_thumb li.video img {
   vertical-align: middle;
+  cursor: pointer;
 }
 .img_thumb li.video img.video-play {
-  margin-left: -97px;
+  position: absolute;
+  left: 50%;
+  margin-left: -19px;
+  margin-top: -18px;
+  top: 50%;
+  cursor: pointer;
+  opacity: 0.7;
+}
+.img_thumb li.video:hover img.video-play {
+  opacity: 1;
 }
 .preivew_box {
   position: relative;
@@ -767,8 +829,7 @@ footer {
 }
 .ding-cai {
   float: right;
-  line-height: 25px;
-  margin-right: 10px;
+  position: relative;
 }
 .carousel .big-car {
   float: left;
@@ -816,14 +877,14 @@ footer {
 }
 .carousel .slide-num li {
   float: left;
-  background: url(images/slide-icon.png) no-repeat center;
+  background: url(images/slide-icon2.png) no-repeat center;
   margin-left: 7px;
   text-indent: -9999px;
-  width: 6px;
+  width: 10px;
   cursor: pointer;
 }
 .carousel .slide-num li.active {
-  background: url(images/slide-icon-w.png) no-repeat center;
+  background: url(images/slide-icon-w2.png) no-repeat center;
 }
 .carousel .right {
   float: right;
@@ -866,6 +927,36 @@ footer {
   background: red;
   bottom: 100px;
   margin-right: -500px;
+}
+#backtop {
+  position: fixed;
+  right: 50%;
+  margin-right: -558px;
+  bottom: 75px;
+  display: none;
+  cursor: pointer;
+}
+.next-slide,
+.pre-slide {
+  width: 27px;
+  height: 28px;
+  position: absolute;
+  top: 83px;
+  z-index: 99;
+  cursor: pointer;
+  display: none;
+}
+.big-car:hover .next-slide,
+.big-car:hover .pre-slide {
+  display: block;
+}
+.next-slide {
+  background: url(images/next.png);
+  right: 4px;
+}
+.pre-slide {
+  background: url(images/pre.png);
+  left: 4px;
 }
 /*!
  * Bootstrap v2.2.2

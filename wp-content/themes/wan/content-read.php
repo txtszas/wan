@@ -38,5 +38,16 @@
 	max-width: 680px;
 	height: auto;
 }
+article{
+	padding: 0;
+}
+.main-left{
+	width: 638px;
+	padding: 0 28px 100px 34px;
+}
+p{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
 
 </style>

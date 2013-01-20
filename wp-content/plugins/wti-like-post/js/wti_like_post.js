@@ -1,15 +1,17 @@
 jQuery(document).ready(function(){
-     jQuery(".like img, .unlike img").click(function(){
-          var task = jQuery(this).attr("rel");
-          var post_id = jQuery(this).attr("id");
+     jQuery(".like, .unlike").click(function(){
+          console.log('赵慧颖');
+          that= jQuery(this).find('span');
+          var task = jQuery(that).attr("rel");
+          var post_id = jQuery(that).attr("id");
           
           if(task == "like")
           {
-               post_id = post_id.replace("like-", "");
+               post_id = post_id.replace("lc-", "");
           }
           else
           {
-               post_id = post_id.replace("unlike-", "");
+               post_id = post_id.replace("unlc-", "");
           }
           
           //jQuery("#status-" + post_id).html("&nbsp;&nbsp;").addClass("loading-img");

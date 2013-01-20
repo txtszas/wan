@@ -30,8 +30,8 @@ function pageLoadAjax(){
 		$post = $the_query->post;
 		$attachInfo = getAttachementsByPostId($post->ID);
 		$categories = get_the_category($post->ID);
-
-		if ($categories[0]->cat_ID == 4) {
+		$cate = getReadCate($categories);
+		if ($cate->cat_ID == 4) {
 			$data[] = array(
 			'id' 		=> $post->ID,
 			'title'		=> $post->post_title,
@@ -42,9 +42,9 @@ function pageLoadAjax(){
 			'comment'	=> $post->comment_count,
 			'post_content' 	=> $post->post_content,
 			'views'		=> 11,
-			'cat_link'	=> get_category_link($categories[0]->term_id),
-			'cat_id'	=> $categories[0]->cat_ID,
-			'cat_name'	=> $categories[0]->name,
+			'cat_link'	=> get_category_link($cate->term_id),
+			'cat_id'	=> $cate->cat_ID,
+			'cat_name'	=> $cate->name,
 			'ding_cai'	=> GetWtiLikePost('put')
 			);
 		}else{
@@ -57,9 +57,9 @@ function pageLoadAjax(){
 			'attachInfo'=> getImageList($attachInfo,$post->ID,$post,$maxWidth,$maginRight),
 			'comment'	=> $post->comment_count,
 			'views'		=> 11,
-			'cat_link'	=> get_category_link($categories[0]->term_id),
-			'cat_id'	=> $categories[0]->cat_ID,
-			'cat_name'	=> $categories[0]->name,
+			'cat_link'	=> get_category_link($cate->term_id),
+			'cat_id'	=> $cate->cat_ID,
+			'cat_name'	=> $cate->name,
 			'ding_cai'	=> GetWtiLikePost('put')
 			);
 		}
@@ -392,8 +392,8 @@ function get_video_code($code){
 	$height = $heightMatch2[0];
 	preg_match('/\d+/', $widthMatch[0], $widthMatch2);
 	$width = $widthMatch2[0];
-	$rWidth = 680;
-	$rheight = (680 * $height)/$width;
+	$rWidth = 660;
+	$rheight = (660 * $height)/$width;
 	if ($height && $width) {
 		$codeString = str_replace($height, $rheight, $codeString);
 		$codeString = str_replace($width, $rWidth, $codeString);
@@ -494,6 +494,25 @@ function custom_excerpt_length( $length ) {
 	return 150;    //填写需要截取的字符数，1个汉字=2个字符
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+
+function new_excerpt_more($more) {
+       global $post;
+	return '...'.'<a href="'. get_permalink($post->ID) . '" class="readmore">阅读全文</a>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
+
+function getReadCate($categories){
+	if (count($categories) > 1){
+		return $categories[1];
+	}else{
+		return $categories[0];
+	}
+
+}
 ?>
 
 <?php add_filter( 'show_admin_bar', '__return_false' ); ?>
+
+
