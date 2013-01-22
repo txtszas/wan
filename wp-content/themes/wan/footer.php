@@ -21,15 +21,24 @@ $('.backtotop').click(function(){
 })
 </script>
 
-		<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/help.js"></script>
-		<script type="text/javascript">
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/login.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/help.js"></script>
+<script type="text/javascript">
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
 document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F14cd35aba7f43383b0ae54ac266f63c9' type='text/javascript'%3E%3C/script%3E"));
 </script>
+<script type="text/javascript">
 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37819028-1']);
+  _gaq.push(['_trackPageview']);
 
-
-		</script>
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
 		<div id="backtop">
 			<img src="<?php echo get_template_directory_uri(); ?>/images/backtop.png">
 		</div>
@@ -65,15 +74,15 @@ return false;
 					</li>
 					<li class="gege">|</li>
 					<li>
-						<a href="#">关于我们</a>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>?page_id=2">关于我们</a>
 					</li>
 					<li class="gege">|</li>
 					<li>
-						<a href="#">加入我们</a>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>?page_id=1685">加入我们</a>
 					</li>
 					<li class="gege">|</li>
 					<li>
-						<a href="#">投稿</a>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>?page_id=1688">投稿</a>
 					</li>
 				</ul>
 

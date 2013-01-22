@@ -13,33 +13,35 @@
 	<div id="LoginWithAjax" class="default"><?php //ID must be here, and if this is a template, class name should be that of template directory ?>
         <span id="LoginWithAjax_Status"></span>
         <form name="LoginWithAjax_Form" id="LoginWithAjax_Form" action="<?php echo $this->url_login; ?>" method="post">
-
-
                 <div class="control-group">
-                    <label><?php _e( 'Username' ) ?></label>
                     <div class="controls">
-                        <input type="text" name="log" id="lwa_user_login" class="input" value="<?php echo attribute_escape(stripslashes($user_login)); ?>" />
+                        <label><?php _e( 'Username' ) ?></label>
+                        <input type="text" name="log" id="lwa_user_login" class="input username" value="<?php echo attribute_escape(stripslashes($user_login)); ?>" />
                     </div>
                 </div>
                 <div class="control-group">
-                    <label><?php _e( 'Password' ) ?></label>
                     <div class="controls">
-                        <input type="password" name="pwd" id="lwa_user_pass" class="input" value="" />
+                        <label><?php _e( 'Password' ) ?></label>
+                        <input type="password" name="pwd" id="lwa_user_pass" class="input password" value="" />
                     </div>
                 </div>
-
+                <div class="control-group remember">
+                    <div class="remeberme-div">
+                        <input name="rememberme" type="checkbox" id="lwa_rememberme" value="forever" /> <label>自动登陆</label>
+                    </div>
+                    <div class="forget-div">
+                       <a id="LoginWithAjax_Links_Remember" href="<?php echo site_url('wp-login.php?action=lostpassword', 'login') ?>" title="<?php _e('Password Lost and Found') ?>">忘记密码</a>
+                    </div>
+                </div>
+                <div class="clear"></div>
                 <?php do_action('login_form'); ?>
-                <div class="control-group ">
+                <div class="control-group">
                     <input type="submit" name="wp-submit" id="lwa_wp-submit" value="<?php _e('Log In'); ?>" tabindex="100" />
                 </div>
                 <div class="control-group regist">    
                         <input type="hidden" name="redirect_to" value="http://<?php echo $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] ?>" />
                         <input type="hidden" name="testcookie" value="1" />
                         <input type="hidden" name="lwa_profile_link" value="<?php echo $lwa_data['profile_link'] ?>" />
-                        
-                       <!--  <input name="rememberme" type="checkbox" id="lwa_rememberme" value="forever" /> <label><?php _e( 'Remember Me' ) ?></label> -->
-                         
-                       
                         <?php
                             //Signup Links
                             if ( get_option('users_can_register') && $lwa_data['registration'] == '1' ) {
@@ -53,12 +55,11 @@
                                 }
                                 ?>
                                 <a href="<?php echo $register_link ?>"  rel="#LoginWithAjax_Register"><?php _e('Register') ?></a>
-                                <?php
-                                echo "|";  
+                                <?php 
                             }
                         ?>
 
-                        <a id="LoginWithAjax_Links_Remember" href="<?php echo site_url('wp-login.php?action=lostpassword', 'login') ?>" title="<?php _e('Password Lost and Found') ?>"><?php _e('Lost your password?') ?></a>
+                        
                 </div>
         </form>
         <form name="LoginWithAjax_Remember" id="LoginWithAjax_Remember" action="<?php echo $this->url_remember ?>" method="post" style="display:none;">

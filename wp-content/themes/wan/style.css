@@ -8,10 +8,12 @@ a:hover {
   height: 0px;
   background: #282828;
   border-bottom: 2px solid #46ca11;
+  z-index: 999;
 }
 #top-nav .container {
   position: relative;
   overflow: visible;
+  z-index: 999;
 }
 #top-nav .right-box {
   width: 69px;
@@ -46,13 +48,24 @@ a:hover {
   display: none;
 }
 #top-nav #login-box {
-  width: 256px;
   background: white;
-  padding: 8px;
+  padding: 20px 30px 16px 32px;
   position: absolute;
   right: 0;
   top: 24px;
+  opacity: 0.9;
   display: none;
+  z-index: 99;
+  width: 206px;
+}
+#top-nav #login-box a {
+  color: #484848;
+}
+#top-nav #login-box a#LoginWithAjax_Links_Remember {
+  color: #808080;
+}
+#top-nav #login-box a:hover {
+  color: #222;
 }
 #login {
   width: 71px;
@@ -101,6 +114,9 @@ header .nav li {
 header .nav li a {
   font-size: 14px;
   color: #484848;
+  display: block;
+  height: 32px;
+  width: 69px;
 }
 header nav {
   position: relative;
@@ -115,6 +131,7 @@ header nav .nav-line {
   position: absolute;
   left: 0;
   top: 32px;
+  *top: 31px;
   _line-height: 0;
   _top: 37px;
 }
@@ -188,9 +205,56 @@ header nav .nav-line {
   line-height: 28px;
   padding: 3px 0 0 0;
   margin: 0 12px 9px 12px;
+  overflow: hidden;
 }
 .breadcrumbs a {
   color: #427ba2;
+}
+.breadcrumbs .bread {
+  float: left;
+}
+.breadcrumbs .search {
+  float: right;
+  position: relative;
+  z-index: 10;
+}
+.breadcrumbs .search .field {
+  width: 140px;
+  height: 16px;
+  border: 0;
+  background: #ccc;
+  color: #fff;
+  margin-top: 3px;
+  font-size: 12px;
+  padding: 2px;
+  line-height: 16px;
+  *margin-top: 0;
+}
+.breadcrumbs .search .field:placeholder {
+  color: #fff;
+}
+.breadcrumbs .search .field:active,
+.breadcrumbs .search .field:focus {
+  outline: 0;
+}
+.breadcrumbs .search ::-webkit-input-placeholder {
+  font-size: 12px;
+  color: #fff;
+}
+.breadcrumbs .search ::-moz-input-placeholder {
+  color: #fff;
+  font-size: 12px;
+}
+.breadcrumbs .search .submit {
+  background: url(images/search-btn.png) no-repeat;
+  border: 0;
+  cursor: pointer;
+  text-indent: -99999px;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  right: 5px;
+  top: 6px;
 }
 #list20 {
   border-bottom: 1px solid #d4d4d4;
@@ -319,6 +383,7 @@ article .entry-meta {
 }
 article .entry-meta .commit-views {
   float: right;
+  *width: 43px;
 }
 article .entry-meta time,
 article .entry-meta .author a,
@@ -413,6 +478,9 @@ article .commit-views .commit-box.like:hover,
 article .commit-views .commit-box.unlike:hover {
   background: #00B9BD;
   color: #fff;
+}
+article .commit-views.commit {
+  *width: 44px;
 }
 .clear {
   clear: both;
@@ -695,7 +763,7 @@ footer {
 }
 .video-view .close-video a {
   font-size: 12px;
-  color: #4168B7;
+  color: #888;
 }
 .ea-title {
   border-bottom: 1px solid #d4d4d4;
@@ -796,6 +864,7 @@ footer {
   line-height: 34px;
   background: #72b332;
   margin-left: -22px;
+  color: #fff;
 }
 .category-title h2 a {
   color: #fff;
@@ -906,6 +975,7 @@ footer {
   color: #fff;
   padding: 2px 0 6px 10px;
   text-shadow: 0 1px 3px black;
+  left: 0;
 }
 .carousel .right .right-car:hover .right-desc {
   font-weight: 700;
@@ -957,6 +1027,124 @@ footer {
 .pre-slide {
   background: url(images/pre.png);
   left: 4px;
+}
+.search-form {
+  padding: 5px;
+  background: #e2e2e2;
+  overflow: hidden;
+}
+.search-form .search-field {
+  float: left;
+}
+.search-form .field {
+  height: 23px;
+  width: 429px;
+  padding: 3px;
+  border: 0;
+}
+.search-form .submit {
+  border: 0;
+  width: 99px;
+  height: 29px;
+  line-height: 29px;
+  background: #fff;
+  cursor: pointer;
+}
+.search-form .submit:hover {
+  background: #cccccc;
+  color: #fff;
+}
+.search-form .search-result {
+  float: left;
+  line-height: 29px;
+  margin-left: 19px;
+}
+.no-result {
+  margin-top: 20px;
+}
+.tag-pn {
+  margin-bottom: 5px;
+}
+.tags {
+  color: #888;
+  float: left;
+}
+.tags a {
+  color: #888;
+}
+/*登陆框*/
+.controls {
+  position: relative;
+  margin-bottom: 12px;
+}
+.controls label {
+  position: absolute;
+  font-size: 12px;
+  color: #7c7c7c;
+  left: 12px;
+  top: 1px;
+}
+.controls .input {
+  width: 194px;
+  height: 19px;
+  padding: 2px 5px;
+  border: 1px solid #d3d2d1;
+  line-height: 19px;
+}
+.controls input.username {
+  background: url(images/user-bg.png) 179px 5px no-repeat;
+}
+.controls input.password {
+  background: url(images/pwd-bg.png) 182px 3px no-repeat;
+}
+.controls .input:focus {
+  outline: 0;
+  border: 1px solid #cbebbc;
+}
+.remeberme-div {
+  float: left;
+  color: #808080;
+  font-size: 12px;
+}
+.forget-div {
+  float: right;
+  font-size: 12px;
+}
+.forget-div a {
+  color: #808080;
+}
+#lwa_wp-submit {
+  float: left;
+  border: 0;
+  background: url(images/login-btn.png);
+  height: 28px;
+  width: 72px;
+  color: #fff;
+  cursor: pointer;
+  line-height: 28px;
+}
+.control-group.remember {
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+.logined {
+  border: 1px solid #b1e68f;
+  border-top: 0;
+}
+.logined .avatar {
+  float: left;
+}
+.logined .username {
+  float: left;
+  width: 75px;
+  text-align: center;
+}
+a#LoginWithAjax_Links_Remember {
+  color: #808080;
+}
+#LoginWithAjax {
+  position: relative;
+  z-index: 99;
 }
 /*!
  * Bootstrap v2.2.2

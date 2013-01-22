@@ -255,14 +255,14 @@ function getPiece(){
 
 
 function get_posted_on(){
-	return '<a href="' . esc_url(get_permalink()) . '" title="'.esc_attr( get_the_time() ).'" rel="bookmark"><time class="entry-date" datetime="'.esc_attr( get_the_date( 'c' ) ).'" pubdate>'.esc_html( get_the_date() ).'</time></a><span class="gg">|</span><span class="by-author"><span class="author vcard"><a class="url fn n" href="'.esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ).'" title="'.esc_attr( sprintf( '查看 %s 发布的文章', get_the_author() ) ).'" rel="author">' . get_the_author() .'</a></span></span>';
+	return '<a href="' . esc_url(get_permalink()) . '" title="'.esc_attr( get_the_time() ).'" rel="bookmark"><time class="entry-date" datetime="'.esc_attr( get_the_date( 'c' ) ).'" pubdate>'.esc_html( get_the_date() ).'</time></a><span class="gg">|</span><span class="by-author"><span class="author vcard">' . get_the_author() .'</span></span>';
 }
 
 
 
 
 function wan_posted_on() {
-	printf( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="gg">|</span><span class="by-author"><span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>',
+	printf( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="gg">|</span><span class="by-author"><span class="author vcard">%7$s</span></span>',
 		esc_url( get_permalink() ),
 		esc_attr( get_the_time() ),
 		esc_attr( get_the_date( 'c' ) ),
@@ -504,8 +504,12 @@ add_filter('excerpt_more', 'new_excerpt_more');
 
 
 function getReadCate($categories){
+	$noShow = array(25,26);
 	if (count($categories) > 1){
-		return $categories[1];
+		if (in_array($categories[0]->cat_ID, $noShow))
+			return $categories[1];
+		else
+			return $categories[0];
 	}else{
 		return $categories[0];
 	}

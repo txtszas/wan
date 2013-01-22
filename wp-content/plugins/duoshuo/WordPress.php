@@ -395,7 +395,6 @@ if (window.duoshuoQuery && duoshuoQuery.sso)
 </script>
 <?php
 	}
-
 	public function connectSite(){
 		update_option('duoshuo_short_name', $_GET['short_name']);
 		update_option('duoshuo_secret', $_GET['secret']);

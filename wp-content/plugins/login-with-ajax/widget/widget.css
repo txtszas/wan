@@ -10,28 +10,7 @@
 #LoginWithAjax_Username{
 	height: 25px;
 }
-.control-group{
-	margin-bottom: 12px;
-	overflow: hidden;
-}
-.control-group label{
-	height: 25px;
-	width: 76px;
-	display: block;
-	float: left;
-	text-align: center;
-	background: #4b4b4b;
-	color: #fff;
-}
-.control-group .controls{
-	float: left;
-}
-.control-group .input{
-	width: 180px;
-	height: 25px;
-	border: 0;
-	background: #cccccc;
-}
+
 .regist{
 	text-align: right;
 	margin-bottom: 0;
@@ -40,15 +19,7 @@
 	color: #808080;
 	font-size: 12px;
 }
-#lwa_wp-submit{
-	float: right;
-	border: 0;
-	background: #4d4d4d;
-	height: 30px;
-	width: 72px;
-	color: #fff;
-	cursor: pointer;
-}
+
 
 #LoginWithAjax .password_label, #LoginWithAjax .username_label { vertical-align:middle; width: 76px;text-align: center;background: #4b4b4b;height: 25px;color: #fff}
 #LoginWithAjax_Password input, #LoginWithAjax_Username input { width:222px; height: 25px;background: #cccccc;border: 0;}

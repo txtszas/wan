@@ -24,14 +24,22 @@
 	<div class="entry-excerpt of">
 		<?php the_content();?>
 	</div>
+	<div class="tag-pn">
+		<div class="tags">
+			<?php the_tags(); ?>
+		</div>
+		<div class="pre-next">
+			<?php previous_post_link('%link', '上一篇'); ?>
+			<?php next_post_link('%link', '下一篇'); ?> 
+		</div>
+	</div>
+
 	<div>
+		
 		<?php GetWtiLikePost(); ?>
 	</div>
 	<div class="clear"></div>
-	<div class="pre-next">
-		<?php previous_post_link('%link', '上一篇'); ?>
-			<?php next_post_link('%link', '下一篇'); ?> 
-	</div>
+
 </article>
 <style type="text/css">
 #content img{

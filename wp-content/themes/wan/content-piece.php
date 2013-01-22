@@ -20,11 +20,11 @@
 		<?php the_content(); ?>
 	</div>
 	<div class="clear"></div>
+	<div class="commit-views commit">
+		<div class="commit-box"><?php echo $post->comment_count; ?>评论</div>
+	</div>
 	<div class="ding-cai">
 		<?php GetWtiLikePost(); ?>
-	</div>
-	<div class="commit-views">
-		<div class="commit-box"><?php echo $post->comment_count; ?>评论</div>
 	</div>
 	<div class="clear"></div>
 </article>

@@ -21,39 +21,22 @@
 		global $wpmu_version;
 		get_currentuserinfo();
 	?>
-	<table cellpadding="0" cellspacing="0" width="100%">
-		<tr>
-			<td class="avatar" id="LoginWithAjax_Avatar">
-				<?php echo get_avatar( $current_user->ID, $size = '50' );  ?>
-			</td>
-			<td id="LoginWithAjax_Info">
 				<?php
 					//Admin URL
-					if ( $lwa_data['profile_link'] == '1' ) {
+					if (1) {
 						if( function_exists('bp_loggedin_user_link') ){
 							?>
 							<a href="<?php bp_loggedin_user_link(); ?>"><?php echo strtolower(__('Profile')) ?></a><br/>
 							<?php	
 						}else{
 							?>
-							<a href="<?php bloginfo('wpurl') ?>/wp-admin/profile.php"><?php echo strtolower(__('Profile')) ?></a><br/>
+							<a href="<?php bloginfo('wpurl') ?>/wp-admin/profile.php">设置</a><br/>
 							<?php	
 						}
 					}
 					//Logout URL
 					?>
-					<a id="wp-logout" href="<?php echo wp_logout_url() ?>"><?php echo strtolower(__( 'Log Out' )) ?></a><br />
-					<?php
-					//Blog Admin
-					if( !empty($wpmu_version) || $user_level > 8 ) {
-						?>
-						<a href="<?php bloginfo('wpurl') ?>/wp-admin/"><?php _e("blog admin", 'loginwithajax'); ?></a>
-						<?php
-					}
-				?>
-			</td>
-		</tr>
-	</table>
+				<a id="wp-logout" href="<?php echo wp_logout_url() ?>"><?php echo strtolower(__( 'Log Out' )) ?></a>
 </div>
 <?php
 	if( $is_widget ){

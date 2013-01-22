@@ -14,7 +14,4 @@
 		</div><!-- .entry-meta -->
 
 	</header>
-
-
-
 </article>

@@ -11,14 +11,17 @@ article .entry-title h2{
     bcn_display();
 }?>
 </div>
-
+<?php
+	$categories = get_the_category();
+	$cate = getReadCate($categories);
+?>
 <div class="main-left">
 <!-- .breadcrumbs -->
 
 	<div class="category-title">
-		<h2 class="cat-<?php echo $cat ?>"><?php the_category(' ') ?></h2>
+		<h2 class="cat-<?php echo $cat ?>"><?php echo $cate->name ?></h2>
 		<div class="cat_desc">
-			<?php echo category_description() ?>
+			<?php echo $cate->description; ?>
 		</div>
 	</div>
 	<div id="content">

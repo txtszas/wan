@@ -19,7 +19,7 @@ get_header();
 
 		<?php 
 			$today = getdate();
-			$query = new WP_Query( 'year=' . $today["year"] . '&monthnum=' . $today["mon"] . '&day=' . $today["mday"] . '&posts_per_page=-1' );
+			$query = new WP_Query( 'year=' . $today["year"] . '&monthnum=' . $today["mon"] . '&day=' . $today["mday"] . '&posts_per_page=-1' .'&cat=3,4,5,24' );
 			if ($query->have_posts()){
 		?>
 			<div class="today-line">

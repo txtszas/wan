@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
 		<title><?php
 	/*
 	 * Print the <title> tag based on what is being viewed.
@@ -24,9 +23,8 @@
 		echo ' | ' . sprintf( __( 'Page %s', 'twentyeleven' ), max( $paged, $page ) );
 
 	?></title>
-
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/typo.css">
-	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>?20130119" />
+	<link rel="stylesheet" type="text/css" href="<?php bloginfo( 'stylesheet_url' ); ?>?20130123" />
 	<!--[if lt IE 9]>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 	<![endif]-->
@@ -40,21 +38,36 @@
 	<body>
 		<div id="top-nav">
 			<div class="container">
-				<div id="login">
+				
 					<?php
 					if (is_user_logged_in()){
 						global $current_user;
-						echo $current_user->display_name;
-					}else{
-						echo '登录';
-					}
 					?>
-				</div>
-				<div id="login-box">
+					<div id="login" class="logined" style="height:27px;width:102px">
+						<div class="avatar">
+							<?php echo get_avatar( $current_user->ID, $size = '27' ); ?>
+						</div>
+						<div class="username">
+							<?php echo $current_user->display_name; ?>
+						</div>	 
+					</div>
+					<div id="login-box" style="top:30px;width:102px;border:1px solid #d1e5ba;background:#f5dbd2;padding:0;font-size:12px;text-align:center">
 					<?php
 						login_with_ajax();
 					?>
-				</div>
+					</div>
+					<?php }else{ ?>
+					<div id="login">
+						登录
+					</div>
+					<div id="login-box">
+					<?php
+						login_with_ajax();
+					?>
+					</div>
+					<?php } ?>
+				
+				
 
 <script type="text/javascript">
 var loginBox = 0;
@@ -111,5 +124,10 @@ $('.nav').mouseleave(function(){
 $('.nav-line').animate({left: $('.nav li.active').position().left },300);
 
 </script>
+<style type="text/css">
+a.ds-kaixin,a.ds-sohu{
+	display: none;
+}
+</style>
 		<div id="main">
 			<div class="container">

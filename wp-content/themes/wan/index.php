@@ -1,20 +1,25 @@
 <?php get_header(); ?>
 <div class="breadcrumbs">
+	<div class="bread">
 	您的位置：
-<?php if(function_exists('bcn_display'))
-{
-    bcn_display();
-}?>
+	<?php if(function_exists('bcn_display'))
+	{
+	    bcn_display();
+	}?>
+	</div>
+	<div class="search">
+	<?php get_search_form( 1 ); ?>
+	</div>
 
 
 
-
-<style type="text/css">
-.wp-pagenavi{
-	display: none;
-}
-</style>
+	<style type="text/css">
+	.wp-pagenavi{
+		display: none;
+	}
+	</style>
 </div><!-- .breadcrumbs -->
+
 
 <div class="clear"></div>
 <div class="main-left">
@@ -51,15 +56,6 @@
 				}
 			endwhile; 
 			?>
-
-
-
-			<!-- <div class="pager">
-				<ul>
-					<li class="previous"><?php previous_posts_link('&laquo; 上一页') ?></li>
-					<li class="next"><?php next_posts_link('下一页 &raquo;','') ?></li>
-				</ul>
-	 		</div> -->
 	</div><!-- #content -->
 	<div class="loading">
 		<p>正在加载中...</p>
@@ -190,12 +186,13 @@ loadPage = {
 							<div class="entry-excerpt of">\
 								'+article.post_content+'\
 							</div>';
-					data += '<div class="ding-cai">\
-						'+article.ding_cai+'\
-					</div>\
-					<div class="commit-views">\
-						<div class="commit-box" title="评论">'+article.comment+'评论</div>\
-					</div><div class="clear"></div>';
+					data += '<div class="commit-views commit">\
+								<div class="commit-box" title="评论">'+article.comment+'评论</div>\
+							</div>\
+							<div class="ding-cai">\
+								'+article.ding_cai+'\
+							</div>\
+							<div class="clear"></div></article>';
 			}else{
 				data = '<article id="post-'+article.id+'" class="well" style="display:none">\
 						<div class="entry-title">\
@@ -215,18 +212,20 @@ loadPage = {
 							</div>';
 			//data += '<div class="entry-more"><a href="'+article.link+'" class="btn">阅读全文</a></div>';
 			data += '<div class="img-review">' + article.attachInfo + '</div>';
-			data += '<div class="ding-cai">\
+			data += '<div class="commit-views commit">\
+						<div class="commit-box" title="评论">'+article.comment+'评论</div>\
+					</div>\
+					<div class="ding-cai">\
 						'+article.ding_cai+'\
 					</div>\
-					<div class="commit-views">\
-						<div class="commit-box" title="评论">'+article.comment+'评论</div>\
-					</div><div class="clear"></div>';
+					<div class="clear"></div></article>';
 			
 			}
 
 			var that = this
 
 			$('#content').append(data);
+			$("#content").trigger("create"); 
 			$('article').fadeIn('normal','swing',function(){
 				that.status = 2
 			});

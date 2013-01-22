@@ -12,6 +12,7 @@ if (is_home()){
 }
 
 if (is_category()){
+	include (TEMPLATEPATH . '/categorylist.php');
 	dynamic_sidebar( 'sidebar-category');
 }
 
