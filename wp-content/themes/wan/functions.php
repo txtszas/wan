@@ -328,7 +328,7 @@ class wan_walker_nav_menu extends Walker_Nav_Menu{
 }
 
 function has_video($code){
-	$result = preg_match('/(?<=<embed).*(?=<\/embed>)/', $code, $match);
+	$result = preg_match('/<embed/', $code, $match);
 	if ($result){
 		return true;
 	}
@@ -385,7 +385,13 @@ function getImageUrl($code,$size = 'normal'){
 
 function get_video_code($code){
 	preg_match('/<embed.*<\/embed>/', $code, $match);
-	$codeString = $match[0];
+	if (isset($match[0])){
+		$codeString = $match[0];
+	}else{
+		preg_match('/<embed.*?\/>/', $code, $match2);
+		$codeString = $match2[0];
+	}
+	
 	preg_match('/(?<=height=)["\']?\d+/', $codeString, $heightMatch);
 	preg_match('/(?<=width=)["\']?\d+/', $codeString, $widthMatch);
 	preg_match('/\d+/', $heightMatch[0], $heightMatch2);
@@ -515,6 +521,201 @@ function getReadCate($categories){
 	}
 
 }
+
+/**
+ *评论form
+ */
+
+function wan_comment_form(){
+	global $id;
+	$post_id = $id;
+	$commenter = wp_get_current_commenter();
+	$user = wp_get_current_user();
+	$user_identity = $user->exists() ? $user->display_name : '';
+	$req = get_option( 'require_name_email' );
+	$aria_req = ( $req ? " aria-required='true'" : '' );
+	$fields =  array(
+		'author' => '<p class="comment-form-author">' . '<label for="author">昵称</label> ' .
+		            '<input id="author" name="author" type="text" value="" size="30"' . $aria_req . ' /></p>',
+		'email'  => '<p class="comment-form-email"><label for="email">邮箱</label> ' .
+		            '<input id="email" name="email" type="text" value="" size="30"' . $aria_req . ' /></p>',
+	);
+	$required_text = sprintf( ' ' . __('Required fields are marked %s'), '<span class="required">*</span>' );
+	$defaults = array(
+		'fields'               => apply_filters( 'comment_form_default_fields', $fields ),
+		'comment_field'        => '<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
+		'must_log_in'          => '<p class="must-log-in">' . sprintf( __( 'You must be <a href="%s">logged in</a> to post a comment.' ), wp_login_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '</p>',
+		'logged_in_as'         => '<p class="logged-in-as">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ), admin_url( 'profile.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '</p>',
+		'comment_notes_before' => '<p class="comment-notes">' . __( 'Your email address will not be published.' ) . ( $req ? $required_text : '' ) . '</p>',
+		'comment_notes_after'  => '<p class="form-allowed-tags">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s' ), ' <code>' . allowed_tags() . '</code>' ) . '</p>',
+		'id_form'              => 'commentform',
+		'id_submit'            => 'submit',
+		'title_reply'          => __( 'Leave a Reply' ),
+		'title_reply_to'       => __( 'Leave a Reply to %s' ),
+		'cancel_reply_link'    => __( 'Cancel reply' ),
+		'label_submit'         => __( 'Post Comment' ),
+	);
+	$args = $defaults;
+
+	if (comments_open( $post_id)) { ?>
+		<div id="replay_form">
+			<h2>我的评论</h2>
+			<form action="<?php echo site_url( '/comments-ajax.php' ); ?>" method="post" id="<?php echo esc_attr( $args['id_form'] ); ?>">
+
+				<p><a href="javascript:;" class="cancle-reply"><i class="icon-remove"></i>取消回复</a></p>
+				<?php if ( is_user_logged_in() ) : ?>
+					<?php echo apply_filters( 'comment_form_logged_in', $args['logged_in_as'], $commenter, $user_identity ); ?>
+					<?php do_action( 'comment_form_logged_in_after', $commenter, $user_identity ); ?>
+				<?php else : ?>
+					<?php
+					do_action( 'comment_form_before_fields' );
+					foreach ( (array) $args['fields'] as $name => $field ) {
+						echo apply_filters( "comment_form_field_{$name}", $field );
+					}
+					do_action( 'comment_form_after_fields' );
+					?>
+				<?php endif; ?>
+				<?php echo apply_filters( 'comment_form_field_comment', $args['comment_field'] ); ?>
+				<div id="ajax-loading" class="hide">正在提交，请稍后...</div>
+				<div id="error-msg" class="hide"></div>
+				<p class="form-submit">
+					<input name="submit" type="submit" id="ajax-submit" value="<?php echo esc_attr( $args['label_submit'] ); ?>" />
+					<input type='hidden' name='comment_post_ID' value='<?php echo $id ?>' id='comment_post_ID' />
+					<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+				</p>
+			</form>
+		</div>
+<?php
+	}
+}
+
+
+
+
+/**
+ * 评论列表
+ */
+
+
+function wan_comment($comment, $args, $depth){
+	$GLOBALS['comment'] = $comment;
+?>
+	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+		<div id="comment-<?php comment_ID(); ?>">
+
+			<div class="comment-avatar">
+				<?php 
+					$avatar_size = 52;
+					if ( '0' != $comment->comment_parent )
+							$avatar_size = 32;
+
+				echo get_avatar( $comment, $avatar_size ); ?>
+			</div>
+			<div class="comment-right">
+				<div class="comment-author">
+					<cite>
+						<?php 
+					 		echo get_comment_author();
+					 	?>:
+					 </cite>
+					 <time>
+					 	<?php
+					 		echo $comment->comment_date;
+					 		//var_dump($comment);
+					 		//echo get_comment_date() . get_comment_time();
+					 	?>
+					 </time> 
+				</div>
+				<div class="comment-content">
+					<?php comment_text(); ?>
+				</div>
+				<div class="reply">
+					<a href="#li-comment-<?php comment_ID(); ?>" data-id="<?php comment_ID(); ?>">评论</a>
+				</div><!-- .reply -->
+			</div>
+			
+			<?php if ( '0' == $comment->comment_approved ) : ?>
+				<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'twentytwelve' ); ?></p>
+			<?php endif; ?>
+			
+		</div><!-- #comment-## -->
+		<div class="clear"></div>
+
+	</li>
+<?php
+}
+?>
+
+
+<?php
+$new_meta_boxes =
+array(
+    "article_from_name" => array(
+        "name" => "article_from_name",
+        "std" => "这里填默认的文章来源显示名称",
+        "title" => "来源名称:"),
+
+    "article_from_link" => array(
+        "name" => "article_from_link",
+        "std" => "这里填默认的文章来源链接",
+        "title" => "来源链接:")
+);
+
+function new_meta_boxes() {
+    global $post, $new_meta_boxes;
+
+    foreach($new_meta_boxes as $meta_box) {
+        $meta_box_value = get_post_meta($post->ID, $meta_box['name'].'_value', true);
+
+        if($meta_box_value == "")
+            $meta_box_value = $meta_box['std'];
+
+        echo'<input type="hidden" name="'.$meta_box['name'].'_noncename" id="'.$meta_box['name'].'_noncename" value="'.wp_create_nonce( plugin_basename(__FILE__) ).'" />';
+
+        // 自定义字段标题
+        echo'<h4>'.$meta_box['title'].'</h4>';
+
+        // 自定义字段输入框
+        echo '<textarea cols="60" rows="3" name="'.$meta_box['name'].'_value">'.$meta_box_value.'</textarea><br />';
+    }
+}
+
+function create_meta_box() {
+    global $theme_name;
+
+    if ( function_exists('add_meta_box') ) {
+        add_meta_box( 'new-meta-boxes', '自定义模块', 'new_meta_boxes', 'post', 'normal', 'high' );
+    }
+}
+function save_postdata( $post_id ) {
+    global $post, $new_meta_boxes;
+
+    foreach($new_meta_boxes as $meta_box) {
+        if ( !wp_verify_nonce( $_POST[$meta_box['name'].'_noncename'], plugin_basename(__FILE__) ))  {
+            return $post_id;
+        }
+
+        if ( 'page' == $_POST['post_type'] ) {
+            if ( !current_user_can( 'edit_page', $post_id ))
+                return $post_id;
+        } 
+        else {
+            if ( !current_user_can( 'edit_post', $post_id ))
+                return $post_id;
+        }
+
+        $data = $_POST[$meta_box['name'].'_value'];
+
+        if(get_post_meta($post_id, $meta_box['name'].'_value') == "")
+            add_post_meta($post_id, $meta_box['name'].'_value', $data, true);
+        elseif($data != get_post_meta($post_id, $meta_box['name'].'_value', true))
+            update_post_meta($post_id, $meta_box['name'].'_value', $data);
+        elseif($data == "")
+            delete_post_meta($post_id, $meta_box['name'].'_value', get_post_meta($post_id, $meta_box['name'].'_value', true));
+    }
+}
+add_action('admin_menu', 'create_meta_box');
+add_action('save_post', 'save_postdata');
 ?>
 
 <?php add_filter( 'show_admin_bar', '__return_false' ); ?>

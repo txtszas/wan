@@ -443,7 +443,8 @@ function _wp_menu_item_classes_by_context( &$menu_items ) {
 			$menu_items[$key]->current_item_ancestor = true;
 		}
 		if ( in_array( $parent_item->db_id, $active_parent_item_ids ) ) {
-			$classes[] = 'current-menu-parent';
+			//$classes[] = 'current-menu-parent';
+			$classes[] = 'active';
 			$menu_items[$key]->current_item_parent = true;
 		}
 		if ( in_array( $parent_item->object_id, $active_parent_object_ids ) )

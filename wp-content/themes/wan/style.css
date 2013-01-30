@@ -223,26 +223,25 @@ header nav .nav-line {
   height: 16px;
   border: 0;
   background: #ccc;
-  color: #fff;
   margin-top: 3px;
+  color: #fff;
   font-size: 12px;
   padding: 2px;
   line-height: 16px;
   *margin-top: 0;
 }
 .breadcrumbs .search .field:placeholder {
-  color: #fff;
+  color: #999;
 }
 .breadcrumbs .search .field:active,
 .breadcrumbs .search .field:focus {
   outline: 0;
+  background: #aaa;
 }
 .breadcrumbs .search ::-webkit-input-placeholder {
   font-size: 12px;
-  color: #fff;
 }
 .breadcrumbs .search ::-moz-input-placeholder {
-  color: #fff;
   font-size: 12px;
 }
 .breadcrumbs .search .submit {
@@ -558,7 +557,6 @@ article .commit-views.commit {
   list-style: none;
 }
 .img_preview li {
-  line-height: 360px;
   text-align: center;
   display: none;
 }
@@ -1070,6 +1068,12 @@ footer {
   float: left;
 }
 .tags a {
+  color: #b7b7b7;
+}
+.from {
+  color: #888;
+}
+.from a {
   color: #888;
 }
 /*登陆框*/
@@ -1128,8 +1132,7 @@ footer {
   overflow: hidden;
 }
 .logined {
-  border: 1px solid #b1e68f;
-  border-top: 0;
+  border-right: 1px solid #fff;
 }
 .logined .avatar {
   float: left;
@@ -1139,12 +1142,152 @@ footer {
   width: 75px;
   text-align: center;
 }
+.logined:hover {
+  border: 1px solid #cdefaf;
+  border-top: 0;
+}
 a#LoginWithAjax_Links_Remember {
   color: #808080;
 }
 #LoginWithAjax {
   position: relative;
   z-index: 99;
+}
+#commits h2 {
+  font-size: 14px;
+  color: #3a3a3a;
+  line-height: 39px;
+}
+.comment-avatar {
+  float: left;
+}
+.commentlist .comment {
+  border-top: 1px solid #e6e6e6;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  -webkit-transition-property: color, background-color;
+  -moz-transition-property: color, background-color;
+  -o-transition-property: color;
+  -ms-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  -ms-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -ms-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+.commentlist .comment .comment-right {
+  padding-left: 70px;
+}
+.commentlist .comment .comment-avatar {
+  margin-right: 20px;
+}
+.commentlist .comment .comment-author {
+  line-height: 12px;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+.commentlist .comment .comment-author cite {
+  color: #4d4d4d;
+  font-weight: 700;
+  margin-right: 5px;
+}
+.commentlist .comment .comment-author time {
+  color: #ccc;
+}
+.commentlist .comment .comment-content {
+  font-size: 12px;
+  color: #4c4c4c;
+  line-height: 25px;
+}
+.commentlist .reply {
+  overflow: hidden;
+}
+.commentlist .reply a {
+  color: #808080;
+  padding-left: 22px;
+  background: url(images/commit.png) no-repeat left;
+  font-size: 12px;
+  display: block;
+  height: 17px;
+  width: 27px;
+  float: right;
+  opacity: 0.8;
+}
+.commentlist .reply a:hover {
+  opacity: 1;
+}
+.commentlist .children {
+  margin-left: 72px;
+}
+.commentlist .children .comment .comment-right {
+  padding-left: 50px;
+}
+.hide {
+  display: none;
+}
+#replay_form h2 {
+  font-size: 14px;
+  color: #3a3a3a;
+  line-height: 25px;
+  border-top: 1px solid #ccc;
+  margin-top: 5px;
+}
+#replay_form p {
+  margin-bottom: 9px;
+}
+#replay_form .comment-form-author,
+#replay_form .comment-form-email {
+  width: 240px;
+  position: relative;
+}
+#replay_form .comment-form-author label,
+#replay_form .comment-form-email label {
+  position: absolute;
+  color: #7C7C7C;
+  left: 12px;
+  top: 1px;
+}
+#replay_form .comment-form-author input,
+#replay_form .comment-form-email input {
+  width: 234px;
+  height: 22px;
+  line-height: 26px;
+  padding: 2px 2px;
+  border: 1px solid #e6e6e6;
+}
+#replay_form textarea {
+  width: 100%;
+  border: 1px solid #e6e6e6;
+}
+#replay_form #ajax-submit {
+  height: 32px;
+  width: 84px;
+  line-height: 32px;
+  background: url(images/comment-btn.png) no-repeat;
+  border: 0;
+  cursor: pointer;
+  color: #fff;
+}
+#replay_form .logged-in-as {
+  font-size: 12px
+		color:#7C7C7C;
+}
+#replay_form .logged-in-as a {
+  color: #3a3a3a;
+}
+.cancle-reply {
+  display: none;
+  color: #7C7C7C;
+  font-size: 12px;
+}
+#error-msg {
+  color: #f53131;
 }
 /*!
  * Bootstrap v2.2.2

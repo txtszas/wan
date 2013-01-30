@@ -43,15 +43,15 @@
 					if (is_user_logged_in()){
 						global $current_user;
 					?>
-					<div id="login" class="logined" style="height:27px;width:102px">
+					<div id="login" class="logined" style="height:28px;width:103px;line-height:28px;">
 						<div class="avatar">
-							<?php echo get_avatar( $current_user->ID, $size = '27' ); ?>
+							<?php echo get_avatar( $current_user->ID, $size = '28' ); ?>
 						</div>
 						<div class="username">
 							<?php echo $current_user->display_name; ?>
 						</div>	 
 					</div>
-					<div id="login-box" style="top:30px;width:102px;border:1px solid #d1e5ba;background:#f5dbd2;padding:0;font-size:12px;text-align:center">
+					<div id="login-box" style="top:29px;width:103px;border:1px solid #f5dbd2;border-top:0;background:#fff;padding:0;font-size:12px;text-align:center">
 					<?php
 						login_with_ajax();
 					?>
@@ -73,12 +73,14 @@
 var loginBox = 0;
 $('#login').click(function(){
 	if (loginBox == 0){
+		$('#login').addClass('active');
 		$('#login-box').slideDown();
 		$('.right-box').addClass('active');
 		loginBox = 1;
 	}else{
 		$('#login-box').slideUp();
 		$('.right-box').removeClass('active');
+		$('#login').removeClass('active');
 		loginBox = 0;
 	}
 

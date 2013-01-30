@@ -49,6 +49,10 @@ function makeImg(){
 	$('ul.img_thumb li.thumbnail').unbind("click");
 	$('ul.img_thumb li.thumbnail').click(function(){
 		var show_eq = $(this).index();
+		if ($(this).parent().find('.video').length){
+			console.log($(this).parent().find('.video'));
+			show_eq = show_eq - 1;
+		}
 		var show_id;
 		post_id = $(this).parent().attr('date-postid');
 		$('#thumn_' + post_id).hide();

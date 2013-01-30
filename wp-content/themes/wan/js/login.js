@@ -8,6 +8,11 @@ $('.controls .input').keydown(function(){
 	label = $(this).parent().find('label');
 	label.fadeOut();
 })
+$('.controls .input').change(function(){
+	label = $(this).parent().find('label');
+	label.fadeOut();
+})
+
 
 $('.controls .input').focusout(function(){
 	value = $(this).val();

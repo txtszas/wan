@@ -30,7 +30,7 @@
 							<?php	
 						}else{
 							?>
-							<a href="<?php bloginfo('wpurl') ?>/wp-admin/profile.php">设置</a><br/>
+							<a href="<?php bloginfo('wpurl') ?>/wp-admin/profile.php">设置</a>
 							<?php	
 						}
 					}
@@ -38,6 +38,34 @@
 					?>
 				<a id="wp-logout" href="<?php echo wp_logout_url() ?>"><?php echo strtolower(__( 'Log Out' )) ?></a>
 </div>
+
+<style type="text/css">
+#login.active{
+	border: 1px solid #F5DBD2;
+	border-top: 0;
+}
+#LoginWithAjax a{
+	display: block;
+	-webkit-transition-property: color, background-color;
+  -moz-transition-property: color, background-color;
+  -o-transition-property: color;
+  -ms-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  -ms-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+#LoginWithAjax a:hover{
+	background: #f5dbd2;
+}
+</style>
 <?php
 	if( $is_widget ){
 		echo $after_widget;

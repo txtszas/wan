@@ -19,8 +19,7 @@
 					<?php comments_template( '', true ); ?>
 
 		<?php endwhile; // end of the loop. ?>
-
-		<div class="ujian-hook"></div>
+		
 		<div class="clear"></div>
 	</div>
 </div>
