@@ -5,6 +5,7 @@
 						'style' 	=> 'list',
 						'title_li' 	=> '',
 						'show_count'=> 1,
+						'orderby' => 'ID', 
 						'exclude' => '26,1,25'
 						)); ?> 
 </ul>
