@@ -90,6 +90,7 @@ loadPage = {
 			})
 		}
 		,checkHeight: function(){
+			console.log(333)
 			if (this.getScrollFromBottom() < 400 && this.getScrollFromBottom() >0 && this.status == 0){
 				this.status =1
 					if (this.realPage <= this.loadLimit) {

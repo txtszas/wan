@@ -1,0 +1,317 @@
+#header{
+	background: #fff;
+	height: 44px;
+	#logo{
+		float: left;
+		margin-left: 26px;
+		margin-top: 8px;
+	}
+	#sell-page{
+		float: right;
+		margin-right: 16px;
+		line-height: 44px;
+		a{
+			font-size: 16px;
+			color: #010101;
+			span{
+				font-size: 13px;
+				line-height: 22px;
+			}
+		}
+	}
+}
+#banner{
+	height: 448px;
+	background: url(images/banner.jpg) center no-repeat;
+}
+#address{
+	background:  #fcfcfc url(images/adress-bg.png) repeat-x;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid #f9f9f9;
+	overflow: hidden;
+	h2.title2{
+		color: #1e3838;
+		font-size: 18px;
+		margin: 0 0 29px;
+	}
+	.left-table,.right-table{
+		float: left;
+	}
+	.left-table{
+		margin-right: 50px;
+	}
+}
+#footer{
+	background: #4e4e4e;
+	height: 40px;
+	.foot-link{
+		line-height: 40px;
+		li{
+			float: left;
+			font-size: 12px;
+			color: #000;
+			a{
+				color: #000;
+			}
+		}
+		.gege{
+			margin: 0 8px;
+		}
+	}
+}
+.container{
+	width: 980px;
+	margin: 0 auto;
+}
+#content{
+	overflow: hidden;
+	.pd20{
+		padding: 0 20px;
+	}
+	.pt43{
+		padding-top: 43px;
+	}
+	#activity-introduction{
+		float: left;
+		background: url(images/bill.jpg) right bottom no-repeat;
+		padding-right: 230px;
+		padding-bottom: 87px;
+		.title{
+			margin-bottom: 22px;
+		}
+		.desc{
+			font-size: 18px;
+			p{
+				line-height: 31px;
+				margin-left: 30px;
+			}
+		}
+	}
+	#activity-detail{
+		float: right;
+		margin-right: 59px;
+		p{
+			font-size: 16px;
+			color: #333333;
+			line-height: 32px;
+			a{
+				color: #333333;
+				font-size: 12px;
+			}
+		}
+	}
+	#activity-production{
+		padding-bottom: 2px;
+		overflow: hidden;
+		*overflow: visible;
+		*width: 980px;
+		*height: 320px;
+		background: url(images/product-bg.jpg) center bottom no-repeat;
+		.c-desc{
+			margin-top: 65px;
+			h4{
+				font-size: 16px;
+				color: #040000;
+				margin-bottom: 7px;
+			}
+			p{
+				font-size: 12px;
+				color: #333333;
+			}
+		}
+		#c700t-desc{
+			margin-left: 37px;
+			
+		}
+
+	}
+	#c700t{
+		width: 225px;
+		height: 133px;
+		background: url(images/700t.png);
+		margin-left: 51px;
+		margin-top: 65px;
+	}
+	#c500t{
+		width: 327px;
+		height: 310px;
+		background: url(images/500t.png);
+	}
+	#c500t,#c700t,.c-desc{
+		float: left;
+	}
+	#learn-more{
+		margin-bottom: 37px;
+		h2.title{
+			margin-bottom: 24px;
+		}
+	}
+	#online-buy{
+		border-top: 1px solid #eaeaea;
+		border-bottom: 1px solid #eaeaea;
+		overflow: hidden;
+
+		.ebuy{
+			height: 27px;
+			float: left;
+			padding: 10px 0;
+			width: 33%;
+			margin: 10px 0;
+			opacity: 0.4
+		}
+		.border{
+			float: left;
+			height: 27px;
+			border-right: 1px solid #ebe9e9;
+			margin-top: 20px;
+		}
+		.ebuy:hover{
+			opacity: 1
+		}
+		#buy360{
+			background: url(images/360buy.png) center no-repeat;
+		}
+		#gome{
+			background: url(images/gamo.png) center bottom no-repeat;
+		}
+		#suning{
+			background: url(images/suning.png) center bottom no-repeat;
+		}
+	}
+}
+h2.title{
+	font-size: 24px;
+	color: #1aa6da;
+	font-weight: bold;
+}
+h3.title{
+	font-size: 20px;
+	color: #333333;
+	font-weight: bold;
+	line-height: 53px;
+	margin-top: 11px;
+}
+.table{
+	border: 1px solid #c7c7c7;
+	th{
+		background: #e2e2e2;
+	}
+	th,td{
+		text-align: center;
+		line-height: 28px;
+	}
+	th.address,td.address{
+		text-align: left;
+		width: 210px;
+		padding: 0 5px;
+	}
+	th.address{
+		background: #ececec;
+	}
+	td.address{
+		border-bottom: 1px solid #f0f0f0;
+	}
+	td.address.last{
+		border-bottom: 1px solid #cccccc;
+	}
+	th.city{
+		background: #dcdcdc;
+		width: 85px;
+	}
+	td.city{
+		background: #efefef;
+		border-bottom: 1px solid #cccccc;
+	}
+	td.office-building.last{
+		border-bottom: 1px solid #cccccc;
+	}
+	th.office-building{
+		width: 114px;
+	}
+	td.office-building{
+		background: #f5f5f5;
+		border-bottom: 1px solid #e7e7e7;
+	}
+}
+
+@media (max-width:480px){
+	#banner{
+	height: 133px;
+	background: url(images/banner-phone.jpg) center no-repeat;
+	}
+	.container{
+		width: auto;
+		margin: 0 5px;
+	}
+	#address{
+		height: auto;
+		.left-table{
+			margin-right: 0;
+		}
+		.left-table,.right-table{
+			float: none;
+			margin-bottom: 10px;
+		}
+	}
+	#content{
+		#activity-introduction{
+			float: none;
+			padding-right:0;
+			padding-bottom: 387px;
+			background: url(images/bill.jpg) center bottom no-repeat;
+			.desc{
+				p{
+					margin-left: 0;
+				}
+			}
+		}
+		#activity-detail{
+			float: none;
+			margin-right: 0;
+		}
+		#activity-production{
+		background: none;
+			.c-desc{
+				margin-left: 37px;
+				margin-top: 30px;
+			}
+		}
+		#c700t{
+			width: 225px;
+			height: 133px;
+			background: url(images/700t-phone.jpg);
+			margin-left: 31px;
+			margin-top: 65px;
+		}
+		#c500t{
+			width: 300px;
+			height: 250px;
+			background: url(images/500t-phone.jpg) -40px 0 ;
+		}
+		#c500t,#c700t,.c-desc{
+			float: none;
+		}
+		.border{
+			display: none;
+		}
+		#online-buy{
+			.ebuy{
+			float: none;
+			padding: 10px 0;
+			width: 100%;
+			margin: 20px 0;
+			opacity: 1
+			}
+		}
+	}
+	.table{
+		th.city{
+			width: 33px;
+		}
+	}
+
+	}
+
+	
+}

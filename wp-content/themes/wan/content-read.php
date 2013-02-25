@@ -62,11 +62,12 @@
 article{
 	padding: 0;
 	border-bottom: 0;
-	p{
-		margin-top: 1em;
-	margin-bottom: 1em;
-	}
+	
 }
+article p{
+		margin-top: 1em;
+		margin-bottom: 1em;
+	}
 .main-left{
 	width: 638px;
 	padding: 0 28px 100px 34px;
@@ -74,3 +75,6 @@ article{
 
 
 </style>
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;btn=r4.gif" charset="utf-8"></script>
+<!-- JiaThis Button END -->
