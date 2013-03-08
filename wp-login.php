@@ -545,7 +545,7 @@ case 'register' :
 		<input type="email" name="user_email" id="user_email" class="input" value="<?php echo esc_attr(stripslashes($user_email)); ?>" size="25" tabindex="20" /></label>
 	</p>
 <?php do_action('register_form'); ?>
-	<p id="reg_passmail"><?php _e('A password will be e-mailed to you.') ?></p>
+	<!-- <p id="reg_passmail"><?php _e('A password will be e-mailed to you.') ?></p> -->
 	<br class="clear" />
 	<input type="hidden" name="redirect_to" value="<?php echo esc_attr( $redirect_to ); ?>" />
 	<p class="submit"><input type="submit" name="wp-submit" id="wp-submit" class="button-primary" value="<?php esc_attr_e('Register'); ?>" tabindex="100" /></p>
@@ -650,8 +650,11 @@ default:
 		$errors->add('confirm', __('Check your e-mail for the confirmation link.'), 'message');
 	elseif	( isset($_GET['checkemail']) && 'newpass' == $_GET['checkemail'] )
 		$errors->add('newpass', __('Check your e-mail for your new password.'), 'message');
-	elseif	( isset($_GET['checkemail']) && 'registered' == $_GET['checkemail'] )
-		$errors->add('registered', __('Registration complete. Please check your e-mail.'), 'message');
+
+	// 去掉注册成功后的邮箱发送提示by张泽@2013.3.5
+	// elseif	( isset($_GET['checkemail']) && 'registered' == $_GET['checkemail'] )
+	// 	$errors->add('registered', __('Registration complete. Please check your e-mail.'), 'message');
+	
 	elseif	( $interim_login )
 		$errors->add('expired', __('Your session has expired. Please log-in again.'), 'message');
 	elseif ( strpos( $redirect_to, 'about.php?updated' ) )
