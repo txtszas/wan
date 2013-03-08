@@ -30,7 +30,7 @@
                         <input name="rememberme" type="checkbox" id="lwa_rememberme" value="forever" /> <label>自动登陆</label>
                     </div>
                     <div class="forget-div">
-                       <a id="LoginWithAjax_Links_Remember" href="<?php echo site_url('wp-login.php?action=lostpassword', 'login') ?>" title="<?php _e('Password Lost and Found') ?>">忘记密码</a>
+                       <a  href="<?php echo site_url('wp-login.php?action=lostpassword', 'login') ?>" title="<?php _e('Password Lost and Found') ?>">忘记密码</a>
                     </div>
                 </div>
                 <div class="clear"></div>

@@ -34,6 +34,7 @@
 		//hook
 		wp_head();
 	?>
+	<meta property="qc:admins" content="034415751310516375" />
 	</head>
 	<body>
 		<div id="top-nav">

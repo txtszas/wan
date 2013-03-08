@@ -24,6 +24,7 @@ if (is_category()){
 
 if (is_single()){
 	dynamic_sidebar( 'sidebar-read');
+	include (TEMPLATEPATH . '/recent_comments.php');
 }
 
 if (is_page()){
@@ -31,4 +32,3 @@ if (is_page()){
 }
 ?>
 </div>
-
