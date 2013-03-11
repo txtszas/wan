@@ -642,10 +642,12 @@ function wp_allow_comment($commentdata) {
 	$dupe .= ") AND comment_content = '$comment_content' LIMIT 1";
 	if ( $wpdb->get_var($dupe) ) {
 		do_action( 'comment_duplicate_trigger', $commentdata );
-		if ( defined('DOING_AJAX') )
-			die( __('Duplicate comment detected; it looks as though you&#8217;ve already said that!') );
+		response_error('重复的评论,似乎您已经评论过了');
+		die;
+		//if ( 1 )
+			//die( __('Duplicate comment detected; it looks as though you&#8217;ve already said that!') );
 
-		wp_die( __('Duplicate comment detected; it looks as though you&#8217;ve already said that!') );
+		//wp_die( __('Duplicate comment detected; it looks as though you&#8217;ve already said that!') );
 	}
 
 	do_action( 'check_comment_flood', $comment_author_IP, $comment_author_email, $comment_date_gmt );
@@ -702,10 +704,12 @@ function check_comment_flood_db( $ip, $email, $date ) {
 		if ( $flood_die ) {
 			do_action('comment_flood_trigger', $time_lastcomment, $time_newcomment);
 
-			if ( defined('DOING_AJAX') )
-				die( __('You are posting comments too quickly. Slow down.') );
+			response_error('您提交评论的速度太快了，请稍后再发表评论。');
+			die;
+			//if ( defined('DOING_AJAX') )
+				//die( __('You are posting comments too quickly. Slow down.') );
 
-			wp_die( __('You are posting comments too quickly. Slow down.'), '', array('response' => 403) );
+			//wp_die( __('You are posting comments too quickly. Slow down.'), '', array('response' => 403) );
 		}
 	}
 }

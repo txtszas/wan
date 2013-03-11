@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-EasyArchives v1.0.1\n"
+"PO-Revision-Date: 2009-06-28 10:07+0100\n"
+"Last-Translator: dave <d_tejedor@yahoo.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: Spain\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;__ngettext_noop:1,2;_c\n"
+"X-Poedit-Basepath: ..\n"
+"POT-Creation-Date: \n"
+"Language-Team: \n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: core.php:149
+msgid "F Y"
+msgstr ""
+
+#: core.php:167
+#, php-format
+msgid "Show detailed results for %1$s"
+msgstr "Mostrar resultados detallados para %1$s"
+
+#: core.php:168
+#, php-format
+msgid "%1$s posts"
+msgstr "%1$s artículos"
+
+#: core.php:228
+#, php-format
+msgid "View this post, &quot;%1$s&quot;"
+msgstr "Ver este artículo, &quot;%1$s&quot;"
+
+#: core.php:310
+msgid "Year: "
+msgstr "Año:"
+
+#: core.php:311
+#: core.php:341
+msgid "loading"
+msgstr "cargando"
+
+#: core.php:340
+msgid "Author: "
+msgstr "Autor:"
+
+#: core.php:353
+msgid "Expand All"
+msgstr "Expandir Todos"
+
+#: core.php:362
+msgid "Collapse All"
+msgstr "Recoger Todos"
+
+#: wp-easyarchives.php:33
+msgid "Monthly Archives"
+msgstr "Archivos Mensuales"
+
+#: wp-easyarchives.php:89
+msgid "Title: "
+msgstr "Título:"
+
+#: wp-easyarchives.php:96
+msgid "Number of archives to show: "
+msgstr "Número de archivos a mostrar:"
+
+#: wp-easyarchives.php:103
+msgid "Display mode: "
+msgstr "Modo de visualización:"
+
+#: wp-easyarchives.php:105
+msgid "Expand last month"
+msgstr "Expandir el último mes"
+
+#: wp-easyarchives.php:106
+msgid "Expand all months"
+msgstr "Expandir todos los meses"
+
+#: wp-easyarchives.php:107
+msgid "Collapse all months"
+msgstr "Recoger todos los meses"
+
+#: wp-easyarchives.php:115
+msgid "Show page items."
+msgstr "Mostrar artículos de página."
+
+#: wp-easyarchives.php:131
+msgid "The monthly archives"
+msgstr "Los archivos mensuales"
+
+#: wp-easyarchives.php:132
+#: wp-easyarchives.php:133
+msgid "WP-EasyArchives"
+msgstr ""
+

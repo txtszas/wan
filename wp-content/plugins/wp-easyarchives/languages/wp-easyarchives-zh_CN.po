@@ -1,0 +1,172 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-EasyArchives 2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-09 11:57+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: neoease.com <wuzhao.mail@gmail.com>\n"
+"Language-Team: NeoEase <http://www.neoease.com/plugins/>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: core.php:109
+msgid "F Y"
+msgstr "Y年n月"
+
+#: core.php:148
+#, php-format
+msgid "%1$s Posts"
+msgstr "%1$s 篇文章"
+
+#: core.php:268
+#: core.php:272
+#: core.php:305
+#: core.php:309
+msgid "All"
+msgstr ""
+
+#: core.php:276
+msgid "Year: "
+msgstr "年份："
+
+#: core.php:312
+msgid "Author: "
+msgstr "作者："
+
+#: core.php:324
+msgid "Expand All"
+msgstr "展开所有"
+
+#: core.php:332
+msgid "Collapse All"
+msgstr "折叠所有"
+
+#: wp-easyarchives.php:84
+msgid "WP-EasyArchives"
+msgstr ""
+
+#: wp-easyarchives.php:93
+msgid "WP-EasyArchives Options"
+msgstr "WP-EasyArchives 插件设置"
+
+#: wp-easyarchives.php:96
+msgid "Settings <strong>saved</strong>."
+msgstr "更改成功。"
+
+#: wp-easyarchives.php:102
+msgid "Donation"
+msgstr "资助鼓励"
+
+#: wp-easyarchives.php:104
+msgid "If you like this plugin, please donate to support development and maintenance!"
+msgstr "如果你认为我做的这些对你来说是有价值的，并鼓励我进行更多开源和免费的开发。那你可以资助我，就算是一杯咖啡…<br /><br /><strong><a href=\"https://me.alipay.com/mg12\">通过支付宝资助</a></strong><style>#donate form{display:none;}</style>"
+
+#: wp-easyarchives.php:117
+msgid "About Author"
+msgstr "关于作者"
+
+#: wp-easyarchives.php:120
+msgid "Author Blog"
+msgstr "作者博客"
+
+#: wp-easyarchives.php:121
+msgid "More Plugins"
+msgstr "更多插件"
+
+#: wp-easyarchives.php:135
+msgid "CSS"
+msgstr ""
+
+#: wp-easyarchives.php:139
+msgid "Use wp-easyarchives.css."
+msgstr "使用 wp-easyarchives.css。"
+
+#: wp-easyarchives.php:145
+msgid "JavaScript Library"
+msgstr "JavaScript 库"
+
+#: wp-easyarchives.php:149
+msgid "Use normal JavaScript library that is supported by this plugin."
+msgstr "使用插件自带的 JavaScript 库。"
+
+#: wp-easyarchives.php:154
+msgid "Use jQuery library that is supported by WordPress."
+msgstr "使用 WordPress 提供的 jQuery 库。"
+
+#: wp-easyarchives.php:159
+msgid "Custom jQuery."
+msgstr "自定义 jQuery 库。"
+
+#: wp-easyarchives.php:162
+msgid "Please input the URL of jQuery:"
+msgstr "请输入 jQuery 的文件地址："
+
+#: wp-easyarchives.php:169
+msgid "Display Mode"
+msgstr "显示模式"
+
+#: wp-easyarchives.php:172
+msgid "Expand all"
+msgstr "展开所有"
+
+#: wp-easyarchives.php:173
+msgid "Collapse all"
+msgstr "折叠所有"
+
+#: wp-easyarchives.php:174
+msgid "by default."
+msgstr "作为默认的目录展示状态。"
+
+#: wp-easyarchives.php:179
+msgid "Post Items"
+msgstr "文章条目"
+
+#: wp-easyarchives.php:183
+msgid "Show page items."
+msgstr "存档列表中包括页面。"
+
+#: wp-easyarchives.php:188
+msgid "Show comment counts."
+msgstr "在文章条目中显示评论数量。"
+
+#: wp-easyarchives.php:189
+msgid "Update the comment counts when (1) posts are updated, (2) plugin options are updated and (3) everyday 0:00AM."
+msgstr "当（1）修改文章、（2）修改插件配置，以及（3）每日零时更新评论数量。"
+
+#: wp-easyarchives.php:195
+msgid "Links"
+msgstr "链接"
+
+#: wp-easyarchives.php:199
+msgid "Open link in new tab/window."
+msgstr "在新标签或者新页面上打开链接。"
+
+#: wp-easyarchives.php:208
+msgid "Save Changes"
+msgstr "保存更改"
+
+#: wp-easyarchives.php:284
+msgid "loading"
+msgstr "正在加载"
+
+#~ msgid "expand"
+#~ msgstr "展开"
+
+#~ msgid "collapse"
+#~ msgstr "折叠"
+
+#~ msgid "Show detailed results for %1$s"
+#~ msgstr "查看 %1$s 的文章详细信息"
+
+#~ msgid "View this post, &quot;%1$s&quot;"
+#~ msgstr "阅读这篇文章, &quot;%1$s&quot;"
+
+#~ msgid "Expand last month"
+#~ msgstr "展开最后一个月"

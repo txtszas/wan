@@ -337,7 +337,7 @@ function _wp_menu_item_classes_by_context( &$menu_items ) {
 				( 'taxonomy' == $menu_item->type && ( $wp_query->is_category || $wp_query->is_tag || $wp_query->is_tax ) )
 			)
 		) {
-			$classes[] = 'current-menu-item';
+			$classes[] = 'active';
 			$menu_items[$key]->current = true;
 			$_anc_id = (int) $menu_item->db_id;
 
@@ -367,7 +367,7 @@ function _wp_menu_item_classes_by_context( &$menu_items ) {
 			$_indexless_current = untrailingslashit( preg_replace( '/index.php$/', '', $current_url ) );
 
 			if ( $raw_item_url && in_array( $item_url, array( $current_url, $_indexless_current, $_root_relative_current ) ) ) {
-				$classes[] = 'current-menu-item';
+				$classes[] = 'active';
 				$menu_items[$key]->current = true;
 				$_anc_id = (int) $menu_item->db_id;
 
@@ -386,9 +386,9 @@ function _wp_menu_item_classes_by_context( &$menu_items ) {
 				$active_parent_object_ids[] = (int) $menu_item->post_parent;
 				$active_object = $menu_item->object;
 
-			// give front page item current-menu-item class when extra query arguments involved
+			// give front page item active class when extra query arguments involved
 			} elseif ( $item_url == $front_page_url && is_front_page() ) {
-				$classes[] = 'current-menu-item';
+				$classes[] = 'active';
 			}
 
 			if ( untrailingslashit($item_url) == home_url() )
@@ -443,7 +443,8 @@ function _wp_menu_item_classes_by_context( &$menu_items ) {
 			$menu_items[$key]->current_item_ancestor = true;
 		}
 		if ( in_array( $parent_item->db_id, $active_parent_item_ids ) ) {
-			$classes[] = 'current-menu-parent';
+			//$classes[] = 'current-menu-parent';
+			$classes[] = 'active';
 			$menu_items[$key]->current_item_parent = true;
 		}
 		if ( in_array( $parent_item->object_id, $active_parent_object_ids ) )

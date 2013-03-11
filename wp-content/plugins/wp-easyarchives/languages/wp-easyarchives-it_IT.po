@@ -1,0 +1,128 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-EasyArchives in italiano\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-06-12 20:25+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Gianni Diurno (aka gidibao) <gidibao@gmail.com>\n"
+"Language-Team: Gianni Diurno | http://gidibao.net/ <gidibao@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: core.php:157
+msgid "F Y"
+msgstr "F Y"
+
+#: core.php:186
+#, php-format
+msgid "Show detailed results for %1$s"
+msgstr "Mostra nel dettaglio i rusultati per %1$s"
+
+#: core.php:187
+#, php-format
+msgid "%1$s posts"
+msgstr "%1$s articoli"
+
+#: core.php:205
+#, php-format
+msgid "View this post, &quot;%1$s&quot;"
+msgstr "Visualizza l'articolo &quot;%1$s&quot;"
+
+#: core.php:304
+msgid "Year: "
+msgstr "Anno: "
+
+#: core.php:305
+#: core.php:335
+msgid "loading"
+msgstr "carica..."
+
+#: core.php:334
+msgid "Author: "
+msgstr "Autore: "
+
+#: core.php:347
+msgid "Expand All"
+msgstr "Espandi"
+
+#: core.php:356
+msgid "Collapse All"
+msgstr "Comprimi"
+
+#: wp-easyarchives.php:33
+msgid "Monthly Archives"
+msgstr "Archivi mensili"
+
+#: wp-easyarchives.php:89
+msgid "Title: "
+msgstr "Titolo: "
+
+#: wp-easyarchives.php:96
+msgid "Number of archives to show: "
+msgstr "Numero degli archivi da mostrare: "
+
+#: wp-easyarchives.php:103
+msgid "Display mode: "
+msgstr "Modalità visualizzazione:"
+
+#: wp-easyarchives.php:105
+msgid "Expand last month"
+msgstr "Espandi sull'ultimo mese"
+
+#: wp-easyarchives.php:106
+msgid "Expand all months"
+msgstr "Espandi tutti i mesi"
+
+#: wp-easyarchives.php:107
+msgid "Collapse all months"
+msgstr "Comprimi tutti i mesi"
+
+#: wp-easyarchives.php:115
+msgid "Show page items."
+msgstr "Mostra page items"
+
+#: wp-easyarchives.php:131
+msgid "The monthly archives"
+msgstr "Archivi mensili"
+
+#: wp-easyarchives.php:132
+#: wp-easyarchives.php:133
+#: wp-easyarchives.php:166
+msgid "WP-EasyArchives"
+msgstr "WP-EasyArchives"
+
+#: wp-easyarchives.php:175
+msgid "WP-EasyArchives Options"
+msgstr "Opzioni WP-EasyArchives"
+
+#: wp-easyarchives.php:180
+msgid "JavaScript Library"
+msgstr "Libreria JavaScript"
+
+#: wp-easyarchives.php:184
+msgid "Use normal JavaScript library that is supported by this plugin."
+msgstr "Utilizza la libreria JavaScript fornita da questo plugin."
+
+#: wp-easyarchives.php:189
+msgid "Use jQuery library that is supported by WordPress."
+msgstr "Utilizza la libreria jQuery fornita da WordPress."
+
+#: wp-easyarchives.php:194
+msgid "Custom jQuery."
+msgstr "jQuery personalizzato"
+
+#: wp-easyarchives.php:197
+msgid "Please input the URL of jQuery:"
+msgstr "Inserisci l'URL del jQuery:"
+
+#: wp-easyarchives.php:206
+msgid "Save Changes"
+msgstr "Salva le modifiche"
+

@@ -1,0 +1,407 @@
+#header {
+  background: #fff;
+  height: 44px;
+}
+#header #logo {
+  float: left;
+  margin-left: 26px;
+  margin-top: 8px;
+}
+#header #sell-page {
+  float: right;
+  margin-right: 16px;
+  line-height: 44px;
+}
+#header #sell-page a {
+  font-size: 16px;
+  color: #010101;
+}
+#header #sell-page a span {
+  font-size: 13px;
+  line-height: 22px;
+}
+#banner {
+  height: 448px;
+  background: url(images/banner.jpg) center bottom no-repeat;
+}
+#address {
+  background: #fcfcfc url(images/adress-bg.png) repeat-x;
+  height: 384px;
+  padding-top: 10px;
+  overflow: hidden;
+}
+#address h2.title2 {
+  color: #1e3838;
+  font-size: 18px;
+  margin: 0 0 29px;
+}
+#address .left-table,
+#address .right-table {
+  float: left;
+}
+#address .left-table {
+  margin-right: 50px;
+}
+#address .box {
+  float: left;
+  width: 191px;
+}
+#address .box h3 {
+  font-size: 14px;
+  color: #010101;
+  margin-bottom: 16px;
+}
+#address .box li {
+  font-size: 12px;
+  color: #010101;
+  line-height: 25px;
+}
+#address .box li span {
+  margin-right: 8px;
+}
+#footer {
+  background: #4e4e4e;
+  height: 40px;
+}
+#footer .foot-link {
+  line-height: 40px;
+}
+#footer .foot-link li {
+  float: left;
+  font-size: 12px;
+  color: #000;
+}
+#footer .foot-link li a {
+  color: #000;
+}
+#footer .foot-link .gege {
+  margin: 0 8px;
+}
+.container {
+  width: 980px;
+  margin: 0 auto;
+}
+#content {
+  overflow: hidden;
+}
+#content .pd20 {
+  padding: 0 20px;
+}
+#content .pt43 {
+  padding-top: 43px;
+}
+#content #activity-introduction {
+  float: left;
+  margin-bottom: 37px;
+}
+#content #activity-introduction p {
+  font-size: 12px;
+  color: #333;
+}
+#content #activity-introduction a {
+  color: #333;
+}
+#content #activity-introduction a:hover {
+  color: #999;
+}
+#content #activity-detail {
+  float: right;
+  margin-right: 59px;
+}
+#content #activity-detail p {
+  font-size: 16px;
+  color: #333333;
+  line-height: 32px;
+}
+#content #activity-detail p a {
+  color: #333333;
+  font-size: 12px;
+}
+#content #activity-production {
+  padding-bottom: 2px;
+  overflow: hidden;
+  background: url(images/product-bg.jpg) center bottom no-repeat;
+}
+#content #activity-production .c-desc {
+  margin-top: 65px;
+}
+#content #activity-production .c-desc h4 {
+  font-size: 16px;
+  color: #040000;
+  margin-bottom: 7px;
+}
+#content #activity-production .c-desc p {
+  font-size: 12px;
+  color: #333333;
+}
+#content #activity-production #c700t-desc {
+  margin-left: 37px;
+}
+#content #c700t {
+  width: 225px;
+  height: 133px;
+  background: url(images/700t.png);
+  margin-left: 51px;
+  margin-top: 65px;
+}
+#content #c500t {
+  width: 327px;
+  height: 310px;
+  background: url(images/500t.png);
+}
+#content #c500t,
+#content #c700t,
+#content .c-desc {
+  float: left;
+}
+#content #learn-more {
+  margin-bottom: 37px;
+}
+#content #learn-more h2.title {
+  margin-bottom: 24px;
+}
+#content #online-buy {
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  overflow: hidden;
+}
+#content #online-buy .ebuy {
+  height: 27px;
+  float: left;
+  padding: 10px 0;
+  width: 33%;
+  margin: 10px 0;
+  opacity: 0.4;
+}
+#content #online-buy .border {
+  float: left;
+  height: 27px;
+  border-right: 1px solid #ebe9e9;
+  margin-top: 20px;
+}
+#content #online-buy .ebuy:hover {
+  opacity: 1;
+}
+#content #online-buy #buy360 {
+  background: url(images/360buy.png) center no-repeat;
+}
+#content #online-buy #gome {
+  background: url(images/gamo.png) center bottom no-repeat;
+}
+#content #online-buy #suning {
+  background: url(images/suning.png) center bottom no-repeat;
+}
+h2.title {
+  font-size: 24px;
+  color: #f71d00;
+  font-weight: bold;
+}
+h3.title {
+  font-size: 20px;
+  color: #333333;
+  font-weight: bold;
+  line-height: 53px;
+  margin-top: 11px;
+}
+.table {
+  border: 1px solid #c7c7c7;
+}
+.table th {
+  background: #e2e2e2;
+}
+.table th,
+.table td {
+  text-align: center;
+  line-height: 28px;
+}
+.table th.address,
+.table td.address {
+  text-align: left;
+  width: 210px;
+  padding: 0 5px;
+}
+.table th.address {
+  background: #ececec;
+}
+.table td.address {
+  border-bottom: 1px solid #f0f0f0;
+}
+.table td.address.last {
+  border-bottom: 1px solid #cccccc;
+}
+.table th.city {
+  background: #dcdcdc;
+  width: 85px;
+}
+.table td.city {
+  background: #efefef;
+  border-bottom: 1px solid #cccccc;
+}
+.table td.office-building.last {
+  border-bottom: 1px solid #cccccc;
+}
+.table th.office-building {
+  width: 111px;
+}
+.table td.office-building {
+  background: #f5f5f5;
+  border-bottom: 1px solid #e7e7e7;
+}
+#saomiao {
+  overflow: hidden;
+}
+#diannei,
+#leifeng {
+  overflow: hidden;
+  background: url(images/line-bg.jpg) no-repeat bottom;
+}
+#diannei {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+}
+#saomiao {
+  margin-bottom: 80px;
+}
+#leifeng {
+  padding-bottom: 35px;
+}
+#simsim-bg {
+  background: url(images/simsim.jpg) no-repeat center;
+  width: 430px;
+  height: 199px;
+  float: left;
+}
+#simsim-desc {
+  float: right;
+  margin-right: 26px;
+  padding-left: 74px;
+  padding-bottom: 102px;
+  background: url(images/shado.jpg) no-repeat bottom;
+}
+#spen-bg {
+  background: url(images/spen.jpg) no-repeat center;
+  width: 317px;
+  height: 227px;
+  float: right;
+}
+#spen-desc {
+  float: left;
+  margin-left: 70px;
+}
+#leifeng-bg {
+  background: url(images/leifeng.jpg) no-repeat center;
+  width: 271px;
+  height: 273px;
+  float: left;
+}
+#leifeng-desc {
+  padding-bottom: 130px;
+  float: right;
+  margin-top: 41px;
+  margin-right: 103px;
+  background: url(images/flower.jpg) no-repeat bottom right;
+}
+.desc h3 {
+  font-size: 21px;
+  color: #201523;
+  font-weight: bold;
+  margin-bottom: 17px;
+}
+@media (max-width: 480px) {
+  #banner {
+    height: 133px;
+    background: url(images/banner-phone.jpg) center no-repeat;
+  }
+  .container {
+    width: auto;
+    margin: 0 5px;
+  }
+  #simsim-bg {
+    background-position: -48px 0;
+  }
+  #simsim-desc {
+    float: left;
+    padding-left: 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  #spen-desc {
+    margin-left: 0;
+  }
+  #spen-bg {
+    float: left;
+    margin-top: 30px;
+  }
+  #leifeng-desc {
+    float: left;
+    margin-right: 0;
+    margin-top: 30px;
+    background-position: left bottom;
+  }
+  #learn-more {
+    margin-top: 30px;
+  }
+  #address {
+    height: auto;
+  }
+  #address .left-table {
+    margin-right: 0;
+  }
+  #address .left-table,
+  #address .right-table {
+    float: none;
+    margin-bottom: 10px;
+  }
+  #address .box {
+    float: none;
+    margin-bottom: 15px;
+  }
+  #address .box h3 {
+    margin-bottom: 0;
+  }
+  #content #activity-introduction {
+    float: none;
+    padding-right: 0;
+  }
+  #content #activity-introduction .desc p {
+    margin-left: 0;
+  }
+  #content #activity-detail {
+    float: none;
+    margin-right: 0;
+  }
+  #content #activity-production {
+    background: none;
+  }
+  #content #activity-production .c-desc {
+    margin-left: 37px;
+    margin-top: 30px;
+  }
+  #content #c700t {
+    width: 225px;
+    height: 133px;
+    background: url(images/700t-phone.jpg);
+    margin-left: 31px;
+    margin-top: 65px;
+  }
+  #content #c500t {
+    width: 300px;
+    height: 250px;
+    background: url(images/500t-phone.jpg) -40px 0;
+  }
+  #content #c500t,
+  #content #c700t,
+  #content .c-desc {
+    float: none;
+  }
+  #content .border {
+    display: none;
+  }
+  #content #online-buy .ebuy {
+    float: none;
+    padding: 10px 0;
+    width: 100%;
+    margin: 20px 0;
+    opacity: 1;
+  }
+}

@@ -20,8 +20,7 @@
 
 /** Define ABSPATH as this file's directory */
 define( 'ABSPATH', dirname(__FILE__) . '/' );
-
-error_reporting( E_CORE_ERROR | E_CORE_WARNING | E_COMPILE_ERROR | E_ERROR | E_WARNING | E_PARSE | E_USER_ERROR | E_USER_WARNING | E_RECOVERABLE_ERROR );
+error_reporting( E_ALL );
 
 if ( file_exists( ABSPATH . 'wp-config.php') ) {
 
@@ -29,7 +28,6 @@ if ( file_exists( ABSPATH . 'wp-config.php') ) {
 	require_once( ABSPATH . 'wp-config.php' );
 
 } elseif ( file_exists( dirname(ABSPATH) . '/wp-config.php' ) && ! file_exists( dirname(ABSPATH) . '/wp-settings.php' ) ) {
-
 	/** The config file resides one level above ABSPATH but is not part of another install */
 	require_once( dirname(ABSPATH) . '/wp-config.php' );
 

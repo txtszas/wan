@@ -1,0 +1,157 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-EasyArchives v1.5.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2009-11-04 02:20-0600\n"
+"Last-Translator: Romeo Shuka <webmaster@romeolab.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Albanian\n"
+"X-Poedit-Country: ALBANIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: core.php:172
+#@ wp-easyarchives
+msgid "F Y"
+msgstr "F Y"
+
+#: core.php:201
+#, php-format
+#@ wp-easyarchives
+msgid "Show detailed results for %1$s"
+msgstr "Trego rezultate të detajuara për %1$s"
+
+#: core.php:202
+#, php-format
+#@ wp-easyarchives
+msgid "%1$s posts"
+msgstr "%1$s postime"
+
+#: core.php:220
+#, php-format
+#@ wp-easyarchives
+msgid "View this post, &quot;%1$s&quot;"
+msgstr "Shiko këtë postim, &quot;%1$s&quot;"
+
+#: core.php:319
+#@ wp-easyarchives
+msgid "Year: "
+msgstr "Viti:"
+
+#: core.php:320
+#: core.php:350
+#@ wp-easyarchives
+msgid "loading"
+msgstr "duke u ngarkuar"
+
+#: core.php:349
+#@ wp-easyarchives
+msgid "Author: "
+msgstr "Autori:"
+
+#: core.php:362
+#@ wp-easyarchives
+msgid "Expand All"
+msgstr "Hapi të gjitha"
+
+#: core.php:371
+#@ wp-easyarchives
+msgid "Collapse All"
+msgstr "Mbylli të gjitha"
+
+#: wp-easyarchives.php:33
+#@ wp-easyarchives
+msgid "Monthly Archives"
+msgstr "Arshiva Mujore"
+
+#: wp-easyarchives.php:89
+#@ wp-easyarchives
+msgid "Title: "
+msgstr "Titulli:"
+
+#: wp-easyarchives.php:96
+#@ wp-easyarchives
+msgid "Number of archives to show: "
+msgstr "Numri i arshivave për tu treguar:"
+
+#: wp-easyarchives.php:103
+#@ wp-easyarchives
+msgid "Display mode: "
+msgstr "Mënyra shfaqjes:"
+
+#: wp-easyarchives.php:105
+#@ wp-easyarchives
+msgid "Expand last month"
+msgstr "Hap muajin e fundit"
+
+#: wp-easyarchives.php:106
+#@ wp-easyarchives
+msgid "Expand all months"
+msgstr "Hap të gjithë muajt"
+
+#: wp-easyarchives.php:107
+#@ wp-easyarchives
+msgid "Collapse all months"
+msgstr "Mbyll të gjithë muajt"
+
+#: wp-easyarchives.php:115
+#@ wp-easyarchives
+msgid "Show page items."
+msgstr "Trego faqen."
+
+#: wp-easyarchives.php:131
+#@ wp-easyarchives
+msgid "The monthly archives"
+msgstr "Arshiva mujore"
+
+#: wp-easyarchives.php:132
+#: wp-easyarchives.php:133
+#: wp-easyarchives.php:166
+#@ wp-easyarchives
+msgid "WP-EasyArchives"
+msgstr "WP-Arshivat"
+
+#: wp-easyarchives.php:175
+#@ wp-easyarchives
+msgid "WP-EasyArchives Options"
+msgstr "Cilësitë e Wp-Arshivat"
+
+#: wp-easyarchives.php:180
+#@ wp-easyarchives
+msgid "JavaScript Library"
+msgstr "Libraria JavaScript"
+
+#: wp-easyarchives.php:184
+#@ wp-easyarchives
+msgid "Use normal JavaScript library that is supported by this plugin."
+msgstr "Përdor librari normale JavaScript që mbështetet nga ky plugin."
+
+#: wp-easyarchives.php:189
+#@ wp-easyarchives
+msgid "Use jQuery library that is supported by WordPress."
+msgstr "Përdor librari jQuery që mbështetet nga Wordpress."
+
+#: wp-easyarchives.php:194
+#@ wp-easyarchives
+msgid "Custom jQuery."
+msgstr "jQuery personale."
+
+#: wp-easyarchives.php:197
+#@ wp-easyarchives
+msgid "Please input the URL of jQuery:"
+msgstr "Ju lutem vendosni URL-në e jQuery:"
+
+#: wp-easyarchives.php:206
+#@ wp-easyarchives
+msgid "Save Changes"
+msgstr "Ruaj Ndryshimet"
+

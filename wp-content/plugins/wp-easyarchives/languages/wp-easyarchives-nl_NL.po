@@ -1,0 +1,173 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-EasyArchives 2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-09 11:58+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: neoease.com <wuzhao.mail@gmail.com>\n"
+"Language-Team: NeoEase <http://www.neoease.com/plugins/>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: core.php:109
+msgid "F Y"
+msgstr "F Y"
+
+#: core.php:148
+#, php-format
+msgid "%1$s Posts"
+msgstr "%1$s Berichten"
+
+#: core.php:268
+#: core.php:272
+#: core.php:305
+#: core.php:309
+msgid "All"
+msgstr ""
+
+#: core.php:276
+msgid "Year: "
+msgstr "Jaar: "
+
+#: core.php:312
+msgid "Author: "
+msgstr "Auteur: "
+
+#: core.php:324
+msgid "Expand All"
+msgstr "Alles Uitvouwen"
+
+#: core.php:332
+msgid "Collapse All"
+msgstr "Alles Sluiten"
+
+#: wp-easyarchives.php:84
+msgid "WP-EasyArchives"
+msgstr "WP-EasyArchives"
+
+#: wp-easyarchives.php:93
+msgid "WP-EasyArchives Options"
+msgstr "WP-EasyArchives Opties"
+
+#: wp-easyarchives.php:96
+msgid "Settings <strong>saved</strong>."
+msgstr ""
+
+#: wp-easyarchives.php:102
+msgid "Donation"
+msgstr ""
+
+#: wp-easyarchives.php:104
+msgid "If you like this plugin, please donate to support development and maintenance!"
+msgstr ""
+
+#: wp-easyarchives.php:117
+msgid "About Author"
+msgstr ""
+
+#: wp-easyarchives.php:120
+msgid "Author Blog"
+msgstr ""
+
+#: wp-easyarchives.php:121
+msgid "More Plugins"
+msgstr ""
+
+#: wp-easyarchives.php:135
+msgid "CSS"
+msgstr "CSS"
+
+#: wp-easyarchives.php:139
+msgid "Use wp-easyarchives.css."
+msgstr "Gebruik wp-easyarchives.css."
+
+#: wp-easyarchives.php:145
+msgid "JavaScript Library"
+msgstr "JavaScript Bibliotheek"
+
+#: wp-easyarchives.php:149
+msgid "Use normal JavaScript library that is supported by this plugin."
+msgstr "Gebruik normale JavaScript bibliotheek welke ondersteund wordt door deze plugin."
+
+#: wp-easyarchives.php:154
+msgid "Use jQuery library that is supported by WordPress."
+msgstr "Gebruik jQuery bibliotheek welke ondersteund wordt door WordPress."
+
+#: wp-easyarchives.php:159
+msgid "Custom jQuery."
+msgstr "Aangepaste jQuery."
+
+#: wp-easyarchives.php:162
+msgid "Please input the URL of jQuery:"
+msgstr "Voer de URL in van jQuery:"
+
+#: wp-easyarchives.php:169
+msgid "Display Mode"
+msgstr "Weergave Modus"
+
+#: wp-easyarchives.php:172
+msgid "Expand all"
+msgstr "Alles uitvouwen"
+
+#: wp-easyarchives.php:173
+msgid "Collapse all"
+msgstr "Alles sluiten"
+
+#: wp-easyarchives.php:174
+msgid "by default."
+msgstr ""
+
+#: wp-easyarchives.php:179
+msgid "Post Items"
+msgstr ""
+
+#: wp-easyarchives.php:183
+msgid "Show page items."
+msgstr "Geef pagina items weer."
+
+#: wp-easyarchives.php:188
+msgid "Show comment counts."
+msgstr ""
+
+#: wp-easyarchives.php:189
+msgid "Update the comment counts when (1) posts are updated, (2) plugin options are updated and (3) everyday 0:00AM."
+msgstr ""
+
+#: wp-easyarchives.php:195
+msgid "Links"
+msgstr ""
+
+#: wp-easyarchives.php:199
+msgid "Open link in new tab/window."
+msgstr ""
+
+#: wp-easyarchives.php:208
+msgid "Save Changes"
+msgstr "Bewaar Wijzigingen"
+
+#: wp-easyarchives.php:284
+msgid "loading"
+msgstr "laden"
+
+#~ msgid "expand"
+#~ msgstr "Uitvouwen"
+
+#~ msgid "collapse"
+#~ msgstr "Sluiten"
+
+#~ msgid "Show detailed results for %1$s"
+#~ msgstr "Laat gedetaileerde resultaten zien voor %1$s"
+
+#~ msgid "View this post, &quot;%1$s&quot;"
+#~ msgstr "Bekijk dit bericht, &quot;%1$s&quot;"
+
+#~ msgid "Expand last month"
+#~ msgstr "Vouw laatste maand uit"

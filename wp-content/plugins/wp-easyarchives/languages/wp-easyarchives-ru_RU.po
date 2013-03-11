@@ -1,0 +1,128 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-EasyArchives 1.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-04-01 01:28+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: a <b>\n"
+"Language-Team: NeoEase <http://www.neoease.com/plugins/>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: core.php:172
+msgid "F Y"
+msgstr ""
+
+#: core.php:201
+#, php-format
+msgid "Show detailed results for %1$s"
+msgstr "Показать расширенные результаты для %1$s"
+
+#: core.php:202
+#, php-format
+msgid "%1$s posts"
+msgstr "%1$s"
+
+#: core.php:220
+#, php-format
+msgid "View this post, &quot;%1$s&quot;"
+msgstr "Посмотреть эту публикацию, &quot;%1$s&quot;"
+
+#: core.php:319
+msgid "Year: "
+msgstr "Год:"
+
+#: core.php:320
+#: core.php:350
+msgid "loading"
+msgstr "загрузка"
+
+#: core.php:349
+msgid "Author: "
+msgstr "Автор:"
+
+#: core.php:362
+msgid "Expand All"
+msgstr "Раскрыть все"
+
+#: core.php:371
+msgid "Collapse All"
+msgstr "Свернуть все"
+
+#: wp-easyarchives.php:33
+msgid "Monthly Archives"
+msgstr "Архивы по месяцам"
+
+#: wp-easyarchives.php:89
+msgid "Title: "
+msgstr "Заголовок:"
+
+#: wp-easyarchives.php:96
+msgid "Number of archives to show: "
+msgstr "Количество архивов к показу"
+
+#: wp-easyarchives.php:103
+msgid "Display mode: "
+msgstr "Отображение публикаций:"
+
+#: wp-easyarchives.php:105
+msgid "Expand last month"
+msgstr "Раскрыть публикации за последний месяц"
+
+#: wp-easyarchives.php:106
+msgid "Expand all months"
+msgstr "Раскрыть публикации за все месяца"
+
+#: wp-easyarchives.php:107
+msgid "Collapse all months"
+msgstr "Свернуть все месяца"
+
+#: wp-easyarchives.php:115
+msgid "Show page items."
+msgstr "Показать содержание страницы."
+
+#: wp-easyarchives.php:131
+msgid "The monthly archives"
+msgstr "Архивы по месяцам"
+
+#: wp-easyarchives.php:132
+#: wp-easyarchives.php:133
+#: wp-easyarchives.php:166
+msgid "WP-EasyArchives"
+msgstr "WP-EasyArchives"
+
+#: wp-easyarchives.php:175
+msgid "WP-EasyArchives Options"
+msgstr "WP-EasyArchives Настройки"
+
+#: wp-easyarchives.php:180
+msgid "JavaScript Library"
+msgstr "JavaScript Библиотека"
+
+#: wp-easyarchives.php:184
+msgid "Use normal JavaScript library that is supported by this plugin."
+msgstr "Используйте стандартную библиотеку JavaScript, которая предоставляется в этом плагине."
+
+#: wp-easyarchives.php:189
+msgid "Use jQuery library that is supported by WordPress."
+msgstr "Используйте библиотеку jQuery, которая предоставляется ВордПрессом."
+
+#: wp-easyarchives.php:194
+msgid "Custom jQuery."
+msgstr "Пользовательский jQuery."
+
+#: wp-easyarchives.php:197
+msgid "Please input the URL of jQuery:"
+msgstr "Пожалуйста, введите урл jQuery:"
+
+#: wp-easyarchives.php:206
+msgid "Save Changes"
+msgstr "Сохранить изменения"
+

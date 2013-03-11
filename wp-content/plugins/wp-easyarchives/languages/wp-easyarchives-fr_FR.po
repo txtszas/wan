@@ -1,0 +1,144 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-EasyArchives v1.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2009-04-06 18:17+0200\n"
+"Last-Translator: lian <lian00@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: FRANCE\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: core.php:99
+#@ wp-easyarchives
+msgid "F Y"
+msgstr ""
+
+#: core.php:128
+#, php-format
+#@ wp-easyarchives
+msgid "Show detailed results for %1$s"
+msgstr "Montrer des résultats détaillés pour %1$s"
+
+#: core.php:129
+#, php-format
+#@ wp-easyarchives
+msgid "%1$s posts"
+msgstr "%1$s billets"
+
+#: core.php:147
+#, php-format
+#@ wp-easyarchives
+msgid "View this post, &quot;%1$s&quot;"
+msgstr "Voir ce billet, &quot;%1$s&quot;"
+
+#: core.php:239
+#@ wp-easyarchives
+msgid "Year: "
+msgstr "Année:"
+
+#: wp-easyarchives.php:204
+#@ wp-easyarchives
+msgid "loading"
+msgstr "en chargement"
+
+#: core.php:266
+#@ wp-easyarchives
+msgid "Author: "
+msgstr "Auteur:"
+
+#: core.php:278
+#@ wp-easyarchives
+msgid "Expand All"
+msgstr "Tout développer"
+
+#: core.php:286
+#@ wp-easyarchives
+msgid "Collapse All"
+msgstr "Tout réduire"
+
+#: wp-easyarchives.php:126
+#@ wp-easyarchives
+msgid "Expand last month"
+msgstr "Développer le dernier mois"
+
+#: wp-easyarchives.php:133
+#@ inove
+msgid "Show page items."
+msgstr "Afficher les pages."
+
+#: wp-easyarchives.php:67
+#@ wp-easyarchives
+msgid "WP-EasyArchives"
+msgstr ""
+
+#: wp-easyarchives.php:76
+#@ wp-easyarchives
+msgid "WP-EasyArchives Options"
+msgstr ""
+
+#: wp-easyarchives.php:95
+#@ wp-easyarchives
+msgid "JavaScript Library"
+msgstr "Librairie Javascript"
+
+#: wp-easyarchives.php:99
+#@ wp-easyarchives
+msgid "Use normal JavaScript library that is supported by this plugin."
+msgstr "Utiliser la bibliothèque Javascript qui est supportée par ce plugin "
+
+#: wp-easyarchives.php:104
+#@ wp-easyarchives
+msgid "Use jQuery library that is supported by WordPress."
+msgstr "Utiliser la bibliothèque jQuery qui est supportée par Wordpress."
+
+#: wp-easyarchives.php:109
+#@ wp-easyarchives
+msgid "Custom jQuery."
+msgstr "JQuery personnalisée."
+
+#: wp-easyarchives.php:112
+#@ wp-easyarchives
+msgid "Please input the URL of jQuery:"
+msgstr "Veuillez entrer l'URL de jQuery: "
+
+#: wp-easyarchives.php:141
+#@ wp-easyarchives
+msgid "Save Changes"
+msgstr "Sauvegarder les modifications "
+
+#: wp-easyarchives.php:81
+#@ wp-easyarchives
+msgid "CSS"
+msgstr ""
+
+#: wp-easyarchives.php:85
+#@ inove
+msgid "Use wp-easyarchives.css."
+msgstr ""
+
+#: wp-easyarchives.php:123
+#@ wp-easyarchives
+msgid "Display Mode"
+msgstr "Mode d'affichage"
+
+#: wp-easyarchives.php:127
+#@ wp-easyarchives
+msgid "Expand all"
+msgstr "Développer tout"
+
+#: wp-easyarchives.php:128
+#@ wp-easyarchives
+msgid "Collapse all"
+msgstr "Réduire tout"
+
