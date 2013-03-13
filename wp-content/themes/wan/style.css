@@ -310,7 +310,7 @@ header nav .nav-line {
 }
 article {
   margin-top: 13px;
-  padding-left: 8px;
+  padding-left: 76px;
   padding-bottom: 10px;
   border-bottom: 1px solid #b7b7b7;
 }
@@ -363,8 +363,6 @@ article .entry-title h4.cat_1 {
 }
 article .entry-title h2 {
   float: left;
-  margin-left: 67px;
-  _margin-left: 33px;
   height: 37px;
   line-height: 27px;
   margin-top: 3px;
@@ -408,7 +406,6 @@ article .entry-meta .commits .commit-arrow {
 }
 article .entry-meta .post_on {
   float: left;
-  margin-left: 16px;
 }
 article .entry-meta .gg {
   margin: 0 3px;

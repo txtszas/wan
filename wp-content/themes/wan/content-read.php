@@ -62,7 +62,6 @@
 article{
 	padding: 0;
 	border-bottom: 0;
-	
 }
 article p{
 		margin-top: 1em;
@@ -71,6 +70,9 @@ article p{
 .main-left{
 	width: 638px;
 	padding: 0 28px 100px 34px;
+}
+article .entry-title h2{
+	margin-left: 67px;
 }
 
 
