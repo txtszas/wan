@@ -1,4 +1,5 @@
 .DS_Store
 job/*
 wp-content/upload
+wp-config.php
 

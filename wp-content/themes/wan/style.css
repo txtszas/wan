@@ -385,7 +385,7 @@ article .entry-meta .commit-views {
   *width: 43px;
 }
 article .entry-meta time,
-article .entry-meta .author a,
+article .entry-meta .author,
 article .entry-meta .views,
 article .entry-meta .commits {
   color: #666666;
