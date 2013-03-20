@@ -1,6 +1,6 @@
 <style type="text/css">
 	#sidebar li.recent_comment_li{background:none;border-bottom:1px dashed #f1f1f1;}
-	li.recent_comment_li{margin-bottom:5px !IMPORTANT;line-height:1.5em;list-style-type:none !important;}
+	li.recent_comment_li{margin-bottom:5px !IMPORTANT;line-height:1.5em;list-style-type:none !important;word-wrap:break-word;}
 	#recent_comment_div1{float:left;}
 	#recent_comment_div2{width:200px;margin-left: 40px;margin-bottom:10px;}
 	span.comment_author em{color:#565656;text-weight:blod;}
