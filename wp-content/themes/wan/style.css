@@ -393,8 +393,9 @@ article .entry-meta .commits {
 article .entry-meta .commits {
   background: #2db2e4;
   color: #fff;
-  padding: 2px 7px;
+  padding: 0px 7px;
   position: relative;
+  display: inline-block;
 }
 article .entry-meta .commits .commit-arrow {
   position: absolute;
