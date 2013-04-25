@@ -39,6 +39,7 @@
 		?>
 		来自：<a href="<?php echo $from_link ?>" target="_blank"><?php echo $from_name ?></a>
 		<?php }?>
+		大咖汇链接：<a href="<?php echo the_permalink() ?>" target="_blank"><?php echo the_permalink() ?></a>
 		</div>
 		<div class="pre-next">
 			<?php previous_post_link('%link', '上一篇'); ?>
