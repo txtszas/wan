@@ -39,6 +39,33 @@
 		?>
 		来自：<a href="<?php echo $from_link ?>" target="_blank"><?php echo $from_name ?></a>
 		<?php }?>
+		
+		
+		<?php
+	// 说明：获取完整URL
+	function curPageURL() 
+	{
+	    $pageURL = 'http';
+	    if ($_SERVER["HTTPS"] == "on") 
+	    {
+	        $pageURL .= "s";
+	    }
+	    $pageURL .= "://";
+	    if ($_SERVER["SERVER_PORT"] != "80") 
+	    {
+	        $pageURL .= $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $_SERVER["REQUEST_URI"];
+	    } 
+	    else 
+	    {
+	        $pageURL .= $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
+	    }
+	    return $pageURL;
+	}
+	?>
+		大咖汇链接：<a href="<?php echo curPageURL() ?>" target="_blank"><?php echo curPageURL() ?></a>
+		
+		
+		
 		</div>
 		<div class="pre-next">
 			<?php previous_post_link('%link', '上一篇'); ?>
